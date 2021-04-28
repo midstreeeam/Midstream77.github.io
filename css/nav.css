@@ -15,7 +15,40 @@ h1.ntitle{
 .nav ul li{
     width: 40%;
 }
-#secondNavBar{
+.nav .second{
     float:right;
+}
+.bloglist{
+    margin-top: 3%;
+}
+li.blogname{
+    width: 40%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 0px;
+    height: 50px;
+    background-color: rgb(221, 219, 219);
+    line-height: 50px;
+    float: left;
+    text-align: center;
+}
+li.fill{
+    width: 20%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    height: 50px;
+    background-color: rgb(221, 219, 219);
+    float: left;
+}
+.bloglist .second{
+    text-align: center;
+    width: 40%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 0px;
+    height: 50px;
+    background-color: rgb(221, 219, 219);
+    line-height: 50px;
+    float: right;
 }
 
