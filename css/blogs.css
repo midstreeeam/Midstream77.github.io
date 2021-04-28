@@ -1,9 +1,17 @@
-.divider{
-    height: 30px;
-    width: 100%;
-    background-color: #2b1650;
-    margin-top: 5%;
-    margin-bottom: 4%;
+.en{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.img{
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%
+}
+img{
+    width: 100%
+}
+#firstpage{
+    height: 300px;
+    width: auto;
 }
 article{
     font-family: 楷体;
