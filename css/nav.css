@@ -1,0 +1,21 @@
+.nheader{
+    padding-top: 5%;
+}
+.ntitle{
+    font-size: 200%;
+    margin-left: 5%;
+    margin-top: 15px;
+}
+h2.ntitle{
+    font-size: 20px;
+}
+h1.ntitle{
+    font-size: 38px;
+}
+.nav ul li{
+    width: 40%;
+}
+#secondNavBar{
+    float:right;
+}
+
