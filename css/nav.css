@@ -12,6 +12,10 @@ h2.ntitle{
 h1.ntitle{
     font-size: 38px;
 }
+h3.ntitle{
+    margin-top: 4%;
+    font-size: 18px
+}
 .nav ul li{
     width: 40%;
 }
@@ -20,35 +24,46 @@ h1.ntitle{
 }
 .bloglist{
     margin-top: 3%;
+    width: 100%
 }
-li.blogname{
+.blogname{
+    background-color: transparent;
     width: 40%;
-    margin-top: 1%;
-    margin-bottom: 1%;
+
     margin-left: 0px;
     height: 50px;
-    background-color: rgb(221, 219, 219);
     line-height: 50px;
     float: left;
     text-align: center;
 }
-li.fill{
+.fill{
+    background-color: transparent;
     width: 20%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    height: 50px;
-    background-color: rgb(221, 219, 219);
     float: left;
 }
-.bloglist .second{
+.date{
+    background-color: transparent;
     text-align: center;
     width: 40%;
-    margin-top: 1%;
-    margin-bottom: 1%;
     margin-left: 0px;
-    height: 50px;
-    background-color: rgb(221, 219, 219);
     line-height: 50px;
     float: right;
 }
+.bloglist a{
+    display: block;
+    height: 50px;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: rgb(221, 219, 219);
+    color:black;
+    display: block;
+    text-decoration: none;
+
+}
+.bloglist a:hover{
+    background-color: #3f3f3f;
+    color:#fff
+}
+
 

@@ -1,0 +1,16 @@
+.divider{
+    height: 30px;
+    width: 100%;
+    background-color: #2b1650;
+    margin-top: 5%;
+    margin-bottom: 4%;
+}
+article{
+    font-family: 楷体;
+    line-height: 35px;
+    font-size: 1.3em;
+    word-break: break-all;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
