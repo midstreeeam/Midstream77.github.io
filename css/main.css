@@ -1,3 +1,27 @@
+.sidebar{
+    width: 40px;
+    background-color: #fff;
+    position: fixed;
+    top: 70%;
+    left: 90%;
+    box-shadow: 4px 3px 5px #131313;
+
+}
+.home{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.back{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.back-top{
+    display: block;
+    width: 100%;
+    position: relative;
+}
 body{
     width: 100%;
     background-color: rgb(120, 120, 125);
@@ -17,7 +41,7 @@ body{
     margin-top: 7px;
     overflow:hidden;
     padding-bottom: 30px;
-    box-shadow: 3px 3px 10px #030303;
+    box-shadow: 3px 3px 11px #131313;
 }
 .header{
     padding-bottom: 15px;
