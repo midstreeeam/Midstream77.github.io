@@ -1,0 +1,12 @@
+Updates in v0.1.0
+- fix the losing side bar in Pictures category
+- add the auto-posting program
+
+
+About auto-posting
+	only capable for pure text encoded in utf-8
+- blog_gen.py : transfer the txt file into html and put it into the correct folder
+- blog_deploy.py : modify the previous page to provede link to reach the blog page
+- blog_func.py : parent class for function, created for further development
+- blog_post.py : the main function and the interface
+- input.txt : container for text
