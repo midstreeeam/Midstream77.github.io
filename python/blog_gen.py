@@ -1,7 +1,11 @@
 from blog_func import blog_func
 class blog_gen(blog_func):
+    '''generate a html file for blog page'''
 
     def gen_template(self):
+        ''' generate the content of the blogpage html file '''
+
+        #read the conent in the input.txt and transfer all the space and tab into '&ensp;'
         f = open('./input.txt','r',encoding='utf-8')
         text = f.read()
         text_list = list(text)
@@ -10,12 +14,16 @@ class blog_gen(blog_func):
                 text_list[i] = '&ensp;'
             if text_list[i] == '\t':
                 text_list[i] = '&ensp;&ensp;&ensp;&ensp;'
+
+        #split the text by paragraphs
         text = ''.join(text_list).split('\n')
 
+        #add '<article>' '</article>' tag to each line to make sure each paragraph is a seperated.
         for i in range(len(text)):
             text[i]='<article>\n'+text[i]+'\n</article>\n'
         text = ''.join(text)
             
+        #generate and return the content of the blog html
         template = '''
         <!DOCTYPE html>
         <html lang="en">
@@ -61,12 +69,20 @@ class blog_gen(blog_func):
         f.close()
         return template
 
+
     def gen_html(self):
+        '''generate the blogpage html file in the right position'''
+
+        #generate the path of the html file
         fname = self.blog_path + '/' + self.title + '.html'
+
+        #avoid wrong submittion to cover the older blogs
         blog = self.Path(fname)
         if blog.exists():
             print('blog existed')
             raise IndexError
+
+        #generate the html file and write the content in it
         else:
             f = open(fname,'w',encoding='utf-8')
             template = self.gen_template()
