@@ -73,11 +73,12 @@ class blog_gen(blog_func):
         f.close()
 
         # to make the template be able to contain the empty line
-        keywords = '<article>\n\n</article>'
-        key = template.find(keywords)
-        template = template[:key] + '<article>\n&ensp;\n</article>' + \
-            template[key+len(keywords):]
-
+        key=0
+        while key!=-1:
+            keywords = '<article>\n\n</article>'
+            key = template.find(keywords)
+            template = template[:key] + '<article>\n&ensp;\n</article>' + \
+                template[key+len(keywords):]
         return template
 
     def gen_html(self):
