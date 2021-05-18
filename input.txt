@@ -1,3 +1,4 @@
+
 from blog_func import blog_func
 
 class blog_deploy(blog_func):
@@ -15,3 +16,4 @@ class blog_deploy(blog_func):
         f = open(path,'w',encoding='utf-8')
         f.write(text)
         f.close()
+
