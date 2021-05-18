@@ -25,11 +25,13 @@ class blog_gen(blog_func):
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>{title}</title>
             <link rel="stylesheet" href="/css/reset.css">
+            <link rel="stylesheet" href="/css/prism.css">
             <link rel="stylesheet" href="/css/main.css">
             <link rel="stylesheet" href="/css/nav.css">
             <link rel="stylesheet" href="/css/blogs.css">
         </head>
         <body>
+            <script src="/js/prism.js"></script>
             <!-- wrapper -->
             <div class="wrapper">
                 <!-- header -->
@@ -72,5 +74,3 @@ class blog_gen(blog_func):
             template = self.gen_template()
             f.write(template)
             f.close()
-
-
