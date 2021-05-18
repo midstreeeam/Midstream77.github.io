@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从冒泡开始</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+</head>
+
+<body>
+    <script src="/js/prism.js"></script>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <div class="nheader">
+            <h2 class="ntitle">Midstreamblog</h2>
+            <h1 class="ntitle">从冒泡开始</h1>
+            <h3 class="ntitle">2021/05/18</h3>
+        </div>
+        <div class="divider"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="wrapper">
+        <div class="divider"></div>
+        <article>
+            写在前面：
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            &ensp;&ensp;&ensp;&ensp;步入大学将满一年，写了近半载的代码，课是囫囵上完了，回首算法却觉得自己疏于理解且更欠练习。
+        </article>
+        <article>
+            &ensp;&ensp;&ensp;&ensp;重头来一遍吧，把这半年里落下的尽量补一补，从冒泡排序开始。
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            冒泡排序：
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+
+using namespace std;
+
+void swap(int &a, int&b){
+    int t=a;
+    a=b;
+    b=t;
+}
+
+void bubble_sort(int* arr,int n){
+    for(int i=0;i&lt;n;i++){
+        for(int j=1;j&lt;n;j++)
+            if(arr[j-1]>arr[j]) swap(arr[j-1],arr[j]);
+    }
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    int *arr = new int[n];
+    for(int i=0;i&lt;n;i++) cin>>arr[i];
+    for(int i=0;i&lt;n;i++) cout&lt;&lt;arr[i]&lt;&lt;"\t";
+    cout&lt;&lt;"\n";
+    bubble_sort(arr,n);
+    for(int i=0;i&lt;n;i++) cout&lt;&lt;arr[i]&lt;&lt;"\t";
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            选择排序：
+        </article>
+        <article>
+            -基础的排序算法，我却直到前一个月和朋友聊天才知道
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+void select_sort(int* arr,int n){
+    int minn,minn_i;
+    for(int i=0;i&lt;n;i++){
+        minn=0x3f3f3f;
+        for(int j=i;j&lt;n;j++){
+            if(arr[j]&lt;minn){
+                minn=arr[j];
+                minn_i=j;
+            }
+        }
+        swap(arr[i],arr[minn_i]);
+    }
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            插入排序：
+        </article>
+        <article>
+            -理应在初学阶段就写过的算法，我却从来没有实现过，这里补上
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+void insertion_sort(int* arr,int n){
+    int i,j,temp;
+    for(i=1;i&lt;n;i++){
+        temp = arr[i];
+        for(j=i-1;j>0&&arr[j]>temp;j--) arr[j+1]=arr[j];
+        arr[j+1]=temp;
+    }
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            希尔排序：
+        </article>
+        <article>
+            -在插入排序中，以顺序为最优倒叙最慢，将数据从数组末端插入至首端十分耗时，希尔排序在排序过程中逐步将数组整理成大致顺序，算是对插入排序的优化。
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+void shell_sort(int* arr,int n){
+    for(int gap=n/2;gap>0;gap/=2){
+        for(int i=gap;i&lt;n;i++){
+            int j=i;
+            while(j-gap>=0&&arr[j]&lt;arr[j-gap]){
+                //using swap in insertion sort
+                swap(arr[j],arr[j-gap]);
+                j-=gap;
+            }
+        }
+    }
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            梳排序：
+        </article>
+        <article>
+            -冒泡型的希尔排序？暂且这么理解吧
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+void comb_sort(int* arr,int n){
+    int gap = n;
+    float shrink = 1.3;
+    while(gap>0){
+        if(gap==round(gap/shrink)) gap--;
+        else gap=round(gap/shrink);
+        for(int i=gap;i&lt;n;i++){
+            if(arr[i]&lt;arr[i-gap]) 
+                swap(arr[i],arr[i-gap]);
+        }
+    }
+}
+                </code>
+            </pre>
+        </article>
+        <article>
+            &ensp;
+        </article>
+        <article>
+            鸡尾酒排序：
+        </article>
+        <article>
+            -前两天无意间看到的，好家伙一个泡来回冒，非常有趣，据说是因为像巴勺在威士忌杯里来回搅拌的样子而得名
+        </article>
+        <article>
+            <pre class="code_background">
+                <code class="language-c++">
+void cocktail_sort(int* arr,int n){
+    int start=1,end=n-1,step=1;
+    int left=1,right=n-1;
+    int i=0;
+    while(left!=right){
+        i+=step;
+        if(arr[i]&lt;arr[i-1]) swap(arr[i],arr[i-1]);
+        if(i==end){
+            if(step==1){
+                right--;
+                end=left+1;
+            }
+            if(step==-1){
+                left++;
+                end=right;
+            }
+            step*=-1;
+        }
+    }
+}
+                </code>
+            </pre>
+        </article>
+
+    </div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+</body>
+<div class="sidebar">
+    <a href="/index.html"><img class="home" src="/img/logo/home.png" alt="home"></a>
+    <a href="/nav/studynotes.html"><img class="back" src="/img/logo/back.png" alt="back"></a>
+    <a href="#"><img class="back-top" src="/img/logo/top.png" alt="back to top"></a>
+</div>
+
+</html>
