@@ -2,31 +2,31 @@ from blog_func import blog_func
 
 
 class blog_gen(blog_func):
-    '''generate a html file for blog page'''
+    """generate a html file for blog page"""
 
     def gen_template(self):
-        ''' generate the content of the blogpage html file '''
+        """generate the content of the blogpage html file"""
 
         # read the conent in the input.txt and transfer all the space and tab into '&ensp;'
-        f = open('./input.txt', 'r', encoding='utf-8')
+        f = open("./input.txt", "r", encoding="utf-8")
         text = f.read()
         text_list = list(text)
         for i in range(len(text)):
-            if text_list[i] == ' ':
-                text_list[i] = '&ensp;'
-            if text_list[i] == '\t':
-                text_list[i] = '&ensp;&ensp;&ensp;&ensp;'
+            if text_list[i] == " ":
+                text_list[i] = "&ensp;"
+            if text_list[i] == "\t":
+                text_list[i] = "&ensp;&ensp;&ensp;&ensp;"
 
         # split the text by paragraphs
-        text = ''.join(text_list).split('\n')
+        text = "".join(text_list).split("\n")
 
         # add '<article>' '</article>' tag to each line to make sure each paragraph is a seperated.
         for i in range(len(text)):
-            text[i] = '<article>\n'+text[i]+'\n</article>\n'
-        text = ''.join(text)
+            text[i] = "<article>\n" + text[i] + "\n</article>\n"
+        text = "".join(text)
 
         # generate and return the content of the blog html
-        template = '''
+        template = """
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -69,33 +69,42 @@ class blog_gen(blog_func):
             <a href="#"><img class="back-top" src="/img/logo/top.png" alt="back to top"></a>
         </div>
         </html>
-        '''.format(title=self.title, date=self.post_time, article=text, prevpage=self.category+'.html')
+        """.format(
+            title=self.title,
+            date=self.post_time,
+            article=text,
+            prevpage=self.category + ".html",
+        )
         f.close()
 
         # to make the template be able to contain the empty line
-        key=0
-        while key!=-1:
-            keywords = '<article>\n\n</article>'
+        key = 0
+        keywords = "<article>\n\n</article>"
+        while key != -1:
             key = template.find(keywords)
-            template = template[:key] + '<article>\n&ensp;\n</article>' + \
-                template[key+len(keywords):]
+            if key != -1:
+                template = (
+                    template[:key]
+                    + "<article>\n&ensp;\n</article>"
+                    + template[key + len(keywords) :]
+                )
         return template
 
     def gen_html(self):
-        '''generate the blogpage html file in the right position'''
+        """generate the blogpage html file in the right position"""
 
         # generate the path of the html file
-        fname = self.blog_path + '/' + self.title + '.html'
+        fname = self.blog_path + "/" + self.title + ".html"
 
         # avoid wrong submittion to cover the older blogs
         blog = self.Path(fname)
         if blog.exists():
-            print('blog existed')
+            print("blog existed")
             raise IndexError
 
         # generate the html file and write the content in it
         else:
-            f = open(fname, 'w', encoding='utf-8')
+            f = open(fname, "w", encoding="utf-8")
             template = self.gen_template()
             f.write(template)
             f.close()
