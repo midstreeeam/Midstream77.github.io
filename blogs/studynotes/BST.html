@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BST</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+</head>
+
+<body>
+    <script src="/js/prism.js"></script>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <div class="nheader">
+            <h2 class="ntitle">Midstreamblog</h2>
+            <h1 class="ntitle">BST</h1>
+            <h3 class="ntitle">2021/05/28</h3>
+        </div>
+        <div class="divider"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="wrapper">
+        <div class="divider"></div>
+        <pre>
+            <code class="language-C++">
+//二叉搜索树BST，写的时候因为一些指针搞不清之后再改，导致写的结构有些乱
+//头文件
+#include &lt;iostream>
+#include &lt;cstdlib>
+using namespace std;
+
+typedef int DataType;
+
+//其实这里可以做一个继承或者只用一个结构体
+class node{
+public:
+    node(DataType data){
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
+
+    DataType data;
+    node* left;
+    node* right;
+
+    //provide recursive choice for public functions
+    node* find(node* pnode, DataType data){
+        if(pnode == NULL) return NULL;
+        if(pnode->data == data) return pnode;
+        if(pnode->data > data) return find(pnode->left,data);
+        if(pnode->data &lt; data) return find(pnode->right,data);
+    }
+
+    node* find_pre(node* pnode, DataType data){
+        if(pnode == NULL) return NULL;
+        if(pnode->right!=NULL&&pnode->right->data==data) return pnode;
+        if(pnode->left!=NULL&&pnode->left->data==data) return pnode;
+        if(pnode->data > data) return find_pre(pnode->left,data);
+        if(pnode->data &lt; data) return find_pre(pnode->right,data);
+    }
+
+    int find_min(){
+        node* tmp = this;
+        if(tmp==NULL){
+            return -1;
+        }
+        while(tmp->left!=NULL){
+            tmp = tmp->left;
+        }
+        return tmp->data;
+    }
+};
+
+class BST{
+
+public:
+    BST();
+    BST(DataType data);
+    BST(DataType* arr, int length);
+    void insert(DataType data);
+    int del(DataType data);
+    int del_all(DataType data);
+    int find_max();
+    int find_min();
+    int find(DataType data);
+    void preorder(node* root);
+    void inorder(node* root);
+    void postorder(node* root);
+
+    node* root;
+
+};
+            </code>
+        </pre>
+        <article>
+            &ensp;
+        </article>
+        <pre>
+            <code class="language-C++">
+//cpp文件
+#include "BST.hpp"
+
+BST::BST(){
+    this->root = NULL;
+}
+
+BST::BST(DataType data){
+    this->root = new node(data);
+    this->root->left = NULL;
+    this->root->right = NULL;
+}
+
+//数组建树
+BST::BST(DataType* arr, int length){
+    this->root->data = arr[0];
+    for(int i=1;i&lt;length;i++){
+        this->insert(arr[i]);
+    }
+}
+
+//查找
+int BST::find(DataType data){
+//1 means find and 0 means can't find
+    node* tmp = this->root;
+
+    //iterative
+    while(tmp!=NULL){
+        if(tmp->data==data){
+            return 1;
+        }
+        if(tmp->data&lt;data){
+            tmp = tmp->right;
+            continue;
+        }
+        if(tmp->data>data){
+            tmp = tmp->left;
+        }
+    }
+    return 0;
+
+//递归版本，简洁一些
+/*  recursive
+    if (this->root->find(tmp,data)==NULL)
+        return 0;
+    return 1;
+*/
+}
+
+//插入
+void BST::insert(DataType data){
+    node* tmp = this->root;
+
+    //iterative
+    while(true){
+        if(tmp->data==data){
+            cout&lt;&lt;"key existed"&lt;&lt;endl;
+            return;
+        }
+        if(tmp->data&lt;data){
+            if(tmp->right==NULL){
+                tmp->right = new node(data);
+                return;
+            }
+            tmp = tmp->right;
+            continue;
+        }
+        if(tmp->data>data){
+            if(tmp->left==NULL){
+                tmp->left = new node(data);
+                return;
+            }
+            tmp = tmp->left;
+        }
+    }
+}
+
+int BST::find_max(){
+    node* tmp = this->root;
+    if(tmp==NULL){
+        cout&lt;&lt;"empty tree"&lt;&lt;endl;
+        return -1;
+    }
+    while(tmp->right!=NULL){
+        tmp = tmp->right;
+    }
+    return tmp->data;
+}
+
+int BST::find_min(){
+    node* tmp = this->root;
+    if(tmp==NULL){
+        cout&lt;&lt;"empty tree"&lt;&lt;endl;
+        return -1;
+    }
+    while(tmp->left!=NULL){
+        tmp = tmp->left;
+    }
+    return tmp->data;
+}
+
+//删除，写的有些乱
+int BST::del(DataType data){
+//0 means can't delete
+
+    node* tmp = this->root;
+    node* delnode = this->root->find(tmp,data);
+
+    if(delnode == NULL) return 0;
+
+    if(delnode->left==NULL&&delnode->right==NULL){
+        node* predelnode = this->root->find_pre(tmp,data);
+        if(predelnode->left!=NULL&&predelnode->left->data==data){
+            predelnode->left=NULL;
+            return 1;
+        }
+        predelnode->right=NULL;
+        return 1;
+    }
+
+    if(delnode->left == NULL){
+        delnode = delnode->right;
+        return 1;
+    }
+    
+    if(delnode->right == NULL){
+        delnode = delnode->left;
+        return 1;
+    }
+
+    int right_min = delnode->right->find_min();
+    node* t = delnode->right->find(delnode->right,right_min);
+    delnode->data = right_min;
+    t = NULL;
+}
+
+//前，中，后序遍历
+void BST::preorder(node* root){
+    if(root==NULL) return;
+    cout&lt;&lt;root->data&lt;&lt;"\t";
+    preorder(root->left);
+    preorder(root->right);
+}
+void BST::inorder(node* root){
+    if(root==NULL) return;
+    inorder(root->left);
+    cout&lt;&lt;root->data&lt;&lt;"\t";
+    inorder(root->right);
+}
+void BST::postorder(node* root){
+    if(root==NULL) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout&lt;&lt;root->data&lt;&lt;"\t";
+}
+
+
+//test
+int main(){
+    BST* p = new BST(3);
+    p->insert(5);
+    p->insert(4);
+    p->insert(7);
+    cout&lt;&lt;p->find(4)&lt;&lt;endl;//1
+    cout&lt;&lt;p->find(9)&lt;&lt;endl;//0
+    cout&lt;&lt;p->find_max()&lt;&lt;endl;//7
+    p->del(7);
+    p->inorder(p->root);//3 4 5
+}
+            </code>
+        </pre>
+    </div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+</body>
+<div class="sidebar">
+    <a href="/index.html"><img class="home" src="/img/logo/home.png" alt="home"></a>
+    <a href="/nav/studynotes.html"><img class="back" src="/img/logo/back.png" alt="back"></a>
+    <a href="#"><img class="back-top" src="/img/logo/top.png" alt="back to top"></a>
+</div>
+
+</html>
