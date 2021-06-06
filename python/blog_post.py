@@ -8,7 +8,8 @@ choices = {
     '2': 'updatelog',
     '3': 'astro',
     '4': 'olderposts',
-    '5': 'studynotes'
+    '5': 'studynotes',
+    '6': '抽象艺术'
 }
 title = input('please input the title of the blog:   ')
 choice = input('''please input the category of the blog
@@ -20,6 +21,7 @@ categories:
 3. astro
 4. olderposts
 5. studynotes
+6. 抽象艺术
 
 ''')
 category = choices.get(choice)
