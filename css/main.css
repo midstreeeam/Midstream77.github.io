@@ -82,7 +82,7 @@ body{
     width:96%;
     height: 60px;
     margin-left: 2%;
-    margin-top: 50px;
+    margin-top: 2%;
     line-height: 60px;
     font-size: 18px;
     background-color: rgb(231, 229, 229);
@@ -118,4 +118,11 @@ body{
 }
 .pull-down:hover{
     display: block;
+}
+.icons{
+    margin-top:3%;
+}
+.icons a{
+    margin:0.5%;
+    color:black;
 }
