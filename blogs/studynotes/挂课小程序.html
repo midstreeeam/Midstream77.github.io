@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>挂课小程序</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+</head>
+
+<body>
+    <script src="/js/prism.js"></script>
+    <!-- wrapper -->
+    <div class="wrapper">
+        <!-- header -->
+        <div class="nheader">
+            <h2 class="ntitle">Midstreamblog</h2>
+            <h1 class="ntitle">挂课小程序</h1>
+            <h3 class="ntitle">2021/07/08</h3>
+        </div>
+        <div class="divider"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="wrapper">
+        <div class="divider"></div>
+        <pre>
+            <code class="language-Python">
+#学校有马原网课的上课要求，慕课需要看够课时
+#这里做一个尝试，康康能不能做一个小工具自动看这些课程
+
+#本人暂时还没有学过爬虫，从别人提供的代码里发现操纵浏览器一般使用selenium
+#可以直接使用pip安装selenium
+
+#导入一堆乱七八糟的工具，没有全部用到
+import time
+import datetime
+from selenium import webdriver
+from selenium.common.exceptions import StaleElementReferenceException,ElementClickInterceptedException
+import selenium.webdriver.support.ui as ui
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+import logging
+from logging.handlers import RotatingFileHandler
+from functools import wraps
+#import argparse
+import configparser
+from tqdm.std import trange
+import random
+
+
+#暂时不使用headless
+#第一次尝试如下，报错
+browser=webdriver.Chrome()
+browser.get("http://www.google.com")
+
+#报错如下
+'''
+Traceback (most recent call last):
+  File "C:\Users\27166\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\common\service.py", line 72, in start
+    self.process = subprocess.Popen(cmd, env=self.env,
+  File "C:\Users\27166\AppData\Local\Programs\Python\Python39\lib\subprocess.py", line 947, 
+in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\27166\AppData\Local\Programs\Python\Python39\lib\subprocess.py", line 1416, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] 系统找不到指定的文件。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\27166\AppData\Local\Programs\Python\Python39\挂课尝试.py", line 16, in <module>
+    browser=webdriver.Chrome()
+  File "C:\Users\27166\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 73, in __init__
+    self.service.start()
+  File "C:\Users\27166\AppData\Local\Programs\Python\Python39\lib\site-packages\selenium\webdriver\common\service.py", line 81, in start
+    raise WebDriverException(
+e in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+'''
+#报错原因是找不到chromedriver.exe
+#在chrome里面输入chrome://version/查看版本然后下载对应驱动，放入python文件夹或者Script子文件夹皆可
+#再次尝试，浏览器正常启动
+
+
+#打开登陆页面，输入账户、密码
+#比较好的方式是将账户密码以及cookies放在ini配置文件中，然后进行读取
+#这里只做一个暂时用来刷网课的尝试，所以比较简陋
+driver=webdriver.Chrome()
+driver.get("http://i.mooc.chaoxing.com")
+driver.maximize_window()
+
+driver.find_element_by_xpath("//*[@id='unameId']").send_keys(phonenumber)
+driver.find_element_by_xpath("//*[@id='passwordId']").send_keys(password)
+
+'''
+driver.switch_to.window(driver.window_handles[-1])
+iframe=driver.find_element_by_id("frame_content")
+driver.switch_to.frame(iframe)
+time.sleep(1)
+phone=driver.find_element_by_id("phone")
+print(phone.location)
+phone.send_keys('18155175670')
+driver.find_element_by_id("pwd").send_keys(password)
+time.sleep(2)
+driver.find_element_by_xpath("//*[@id='loginBtn']").click()
+
+os.system("pause")
+'''
+
+#这里本来做的是一个自动登录，然后进入需要看的课程的网页
+#但是学习通的登录需要验证码，并且需要扫二维码登录，所以这里只能先暂停，然后手动扫码再继续程序
+
+#进入需要刷的视频的网页
+
+#从第一个视频开始
+i = 1
+
+#播放视频，然后进入下一个视频
+while True:
+
+    #这里用try是因为有些课程是没有视频的
+    try:
+        driver.switch_to.window(driver.window_handles[-1])
+        a = '0'
+        driver.switch_to.default_content()
+
+        #获取播放列表
+        #每一次播单的使用都要现场获取播单
+        #因为慕课的网页生成是动态的，如果在循环外获取播单，只有第一层循环能正常运行
+        #每当一次课程完成，播单列表都会改变
+        playlist=driver.find_elements_by_class_name("ncells")
+
+        #跳过所有的ppt和章节测试
+        if '自学PPT' in playlist[i].text:
+            driver.switch_to.default_content()
+            playlist=driver.find_elements_by_class_name("ncells")
+            print(playlist[i].text)
+            playlist[i].click()
+            print('==========')
+            i+=1
+            continue
+        if '章节测试' in playlist[i].text:
+            driver.switch_to.default_content()
+            playlist=driver.find_elements_by_class_name("ncells")
+            print(playlist[i].text)
+            playlist[i].click()
+            print('==========')
+            i+=1
+            continue
+
+        #仔细观察发现，慕课的视频套了两层网页iframe，所以要一次进入，否则定位不到
+        driver.switch_to.window(driver.window_handles[-1])
+        driver.switch_to.default_content()
+        driver.switch_to.frame("iframe")
+        time.sleep(1)
+
+        #这里网页的生成会有一些不一样
+        #已经完成的课程的第二层iframe的xpath是"//*[@id='ext-gen1042']/iframe"
+        #没有完成的课程的第二层iframe的xpath是"//*[@id='ext-gen1041']/div/div/p[1]/div/iframe"
+        #这里本来认为这样可以自动跳过所有的已经完成的课程，但是最后发现没有实现
+        #这个问题没有解决（也没打算解决了）
+        iframe2=driver.find_element_by_xpath("//*[@id='ext-gen1041']/div/div/p[1]/div/iframe")
+        #iframe2=driver.find_element_by_xpath("//*[@id='ext-gen1042']/iframe")
+        time.sleep(1)
+        driver.switch_to_frame(iframe2)
+        time.sleep(1)
+        video=driver.find_element_by_xpath("//*[@id='video']/div[2]")
+        time.sleep(1)
+
+        #这里使用click()方法会报错
+        #直接调用网页里的JavaScript的click方法可以成功播放视频
+        driver.execute_script("arguments[0].click();", video)
+        #鼠标如果离开，视频不会继续播放，所以可以设置悬浮
+        #ActionChains(driver).move_to_element(video).perform()
+
+
+        #这里是视频的播放
+        #正确的写法应该是直接获取视频链接，读取视频的MP4文件然后获取视频时常
+        #我这里懒了，直接设置每个网页停留800秒
+        for j in range(80):
+            time.sleep(10)
+            print(str(j+1)+"0sec")
+
+    except:
+        #driver.switch_to.default_content()
+        #driver.find_element_by_xpath("/html/body/div[3]/div/div[2]/div[1]/div[2]").click()
+        time.sleep(2)
+        print('out')
+    
+    
+    driver.switch_to.default_content()
+    #每次使用播单之前都重新获取
+    playlist=driver.find_elements_by_class_name("ncells")
+    print(playlist[i].text)
+    playlist[i].click()
+    print('==============')
+    i+=1
+
+    #最终的成品勉强能用，还有很大的提升空间
+    #之后可以提升的部分有：寻找课程的机制，自动登录机制，判断视频时长，视频倍速播放，后台运行，判断课程是否完成
+    #介于没有系统学习selenium，并且这只是一个简单的尝试，所以问题留存，暂时不更改了。
+            </code>
+        </pre>
+        <article>
+            &ensp;
+        </article>
+
+    </div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+</body>
+<div class="sidebar">
+    <a href="/index.html"><img class="home" src="/img/logo/home.png" alt="home"></a>
+    <a href="/nav/studynotes.html"><img class="back" src="/img/logo/back.png" alt="back"></a>
+    <a href="#"><img class="back-top" src="/img/logo/top.png" alt="back to top"></a>
+</div>
+
+</html>
