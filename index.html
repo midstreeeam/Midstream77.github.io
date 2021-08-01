@@ -3,80 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midstreamblog</title>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <script type="text/javascript" src="js/tools.js"></script>
+
 </head>
 
 <body>
+    <div class="cover">
+        <div class="cover_last_left">
+            <img src="img/logo.jpg" id="logo">
+            <h2>Midstream Blog</h2>
+            <div class="cover_last_left_divider"></div>
+            <h4>just the place about me</h4>
+        </div>
 
-    <!-- Wrapper -->
-    <div class="wrapper">
+        <div class="nav_panel_list_icon_hidden"><a class="list_icon" href="javascript:void(0)"
+                onclick="list_icon_click()"><span class="iconfont">&#xe7be;</a></div>
 
-        <!-- Header -->
-        <div class="header">
-            <img class="logo" src="img/logo/logo.jpg" alt="">
-            <h1 class="title">Midstream Blog</h1>
-            <p class="discription">testing version</p>
-            <p class="version">v0.1.2</p>
-            <div class="icons">
-                <a href="https://github.com/Midstream77/Midstream77.github.io"><i class="fa fa-github"
-                        style="font-size:24px"></i></a>
-                <a href="mailto:kl389@duke.edu"><i class="fa fa-envelope" style="font-size:24px"></i></a>
+        <div class="cover_panel">
+            <div class="nav_panel_hidden">
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="html/tags.html"><span
+                            class="iconfont">&#xe7b6;<div class="icon_dis">标签</div></span></a></div>
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="html/friends.html"><span
+                            class="iconfont">&#xe61d;<div class="icon_dis">友链</div></span></a></div>
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="#"><span
+                            class="iconfont">&#xe7b7;<div class="icon_dis">关于</div></span></a></div>
+                <div class="nav_panel_element_hidden"><a class="nav_panel_element_link" href="#"><span
+                            class="iconfont">&#xe7bf;<div class="icon_dis">主页</div></span></a></div>
             </div>
+
+            <button id="btn_start">start</button>
         </div>
 
-
-        <!-- Nav -->
-        <nav class="nav">
-            <ul>
-                <li><a href="nav/dailyblog.html">Daily Blog</a></li>
-                <li><a href="nav/updatelog.html">Update Log</a></li>
-                <li><a href="nav/pictures.html">Pictures</a></li>
-                <li><a href="/nav/astro.html">Astro</a></li>
-                <!-- older version with pull-down nav -->
-
-                <!--
-                <li id="more"><a href="#">More</a></li>
-                <nav class="pull-down">
-                    <ul>
-                        <li><a href="/nav/astro.html">Astro</a></li>
-                        <li><a href="/nav/studynotes.html">Study Notes</a></li>
-                        <li><a href="/nav/olderposts.html">Older Posts</a></li>
-                        <li><a href="/nav/friends.html">Friends</a></li>
-                    </ul>
-                </nav>
-                -->
-            </ul>
-            <div class="float_divider"></div>
-            <ul>
-                <li><a href="/nav/抽象艺术.html">抽象艺术</a></li>
-                <li><a href="/nav/studynotes.html">Study Notes</a></li>
-                <li><a href="/nav/olderposts.html">Older Posts</a></li>
-                <li><a href="/nav/friends.html">Friends</a></li>
-            </ul>
-        </nav>
-        <div class="divider"></div>
-        <div class="divider"></div>
-
-        <!-- Main -->
-        <div id="main">
-
+    </div>
+    <div class="content_right">
+        <div class="blog_block">
+            <a href="blogs/一篇算不得游记的游记——洛阳游记.html">
+                <h3 class="blog_title">一篇算不得游记的游记——洛阳游记</h3>
+            </a>
+            <p class="blog_date">2018/03/29</p>
+            <a href="blogs/一篇算不得游记的游记——洛阳游记.html">
+                <p class="blog_pre">重发表序言：
+                        18年，我高一，第一次参加学校组织的研学游活动，要求一个小组写一篇文章，就写了，但是掺了点私心，名为作业，写作游记。
+                    这是一次失败的假公济私，欲作游记，又沾了作业，不伦不类。因此这篇游记是一篇算不得游记的游记，当初已经意识到了。
+                    ——2021/05/07
+                </p>
+            </a>
+            <a href="#" class = "blog_tag">#旧日志</a>
+            <a href="#" class = "blog_tag">#游记</a>
+            
         </div>
+
+        <div class="block_divider_long"></div>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul>
-            <!--<li><i style="font-size:24px" class="fa">&#xf09b</i></li>-->
-            <!--<i class="fa fa-github" style="font-size:24px"></i>-->
-        </ul>
-    </footer>
 
 </body>
+
+<script type="text/javascript" src="js/window.js"></script>
 
 </html>

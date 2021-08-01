@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1627635112681') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 1.1em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lianjie:before {
+  content: "\e61d";
+}
+
+.icon-github:before {
+  content: "\e629";
+}
+
+.icon-tags:before {
+  content: "\e7b5";
+}
+
+.icon-tag:before {
+  content: "\e7b6";
+}
+
+.icon-user:before {
+  content: "\e7b7";
+}
+
+.icon-a-arrow1:before {
+  content: "\e7b8";
+}
+
+.icon-no:before {
+  content: "\e7b9";
+}
+
+.icon-twitter:before {
+  content: "\e7ba";
+}
+
+.icon-refresh:before {
+  content: "\e7bb";
+}
+
+.icon-a-arrow3:before {
+  content: "\e7bc";
+}
+
+.icon-a-arrow2:before {
+  content: "\e7bd";
+}
+
+.icon-a-listview:before {
+  content: "\e7be";
+}
+
+.icon-house:before {
+  content: "\e7bf";
+}
+
