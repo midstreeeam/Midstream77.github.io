@@ -1,9 +1,0 @@
-Updates in v0.1.2
-
--add icons of github and mail
--add 抽象艺术 category
--reorganize the home page
--change fontawsome into online verson
--change prism font size
--add passcode and ban rightclick and copy-paste to some blogs
--fix the bug of generate two pieces of templates in blog_gen.py

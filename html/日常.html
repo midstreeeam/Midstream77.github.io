@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midstreamblog</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="font/iconfont.css">
-    <script type="text/javascript" src="js/tools.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <script type="text/javascript" src="../js/tools.js"></script>
 
 </head>
 
 <body>
-    <div class="cover">
+    <div class="cover_left">
         <div class="cover_last_left">
-            <img src="img/logo.jpg" id="logo">
+            <img src="../img/logo.jpg" id="logo">
             <h2>Midstream Blog</h2>
             <div class="cover_last_left_divider"></div>
             <h4>just the place about me</h4>
@@ -26,22 +26,24 @@
                 onclick="list_icon_click()"><span class="iconfont">&#xe7be;</a></div>
 
         <div class="cover_panel">
-            <div class="nav_panel_hidden">
-                <div class="nav_panel_element"><a class="nav_panel_element_link" href="html/tags.html"><span
+            <div class="nav_panel">
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="../html/tags.html"><span
                             class="iconfont">&#xe7b6;<div class="icon_dis">标签</div></span></a></div>
-                <div class="nav_panel_element"><a class="nav_panel_element_link" href="html/friends.html"><span
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="../html/friends.html"><span
                             class="iconfont">&#xe61d;<div class="icon_dis">友链</div></span></a></div>
-                <div class="nav_panel_element"><a class="nav_panel_element_link" href="html/about.html"><span
+                <div class="nav_panel_element"><a class="nav_panel_element_link" href="../html/about.html"><span
                             class="iconfont">&#xe7b7;<div class="icon_dis">关于</div></span></a></div>
-                <div class="nav_panel_element_hidden"><a class="nav_panel_element_link" href="#"><span
+                <div class="nav_panel_element_hidden"><a class="nav_panel_element_link" href="../index.html"><span
                             class="iconfont">&#xe7bf;<div class="icon_dis">主页</div></span></a></div>
             </div>
 
-            <button id="btn_start">start</button>
+            <a href="../index.html"><button id="btn_home">home</button></a>
         </div>
-
     </div>
+
     <div class="content_right">
+
+        <div class="tags_head">#日常</div>
 
         <!-- list start -->
 <div class="blog_block">
@@ -63,21 +65,6 @@
         </p>
     </a>
     <a href="../html/日常.html" class = "blog_tag">#日常</a>
-
-</div>
-<div class="block_divider"></div>
-        
-<div class="blog_block">
-    <a href="/blogs/夏天之一.html">
-        <h3 class="blog_title">夏天之一</h3>
-    </a>
-    <p class="blog_date">2021/06/01</p>
-    <a href="/blogs/夏天之一.html">
-        <p class="blog_pre">
-             水拍在堤上，飞起的沫子把落灰的水泥地染黑，皱巴巴的啤酒罐们薄得像纸，凝着雾，颓坐在你俩中间。有虫鸣吗？记不得了，应该有罢，记得那像是夏天。有飞虫似的，臆想出来的蚊子在你身边转着圈儿让你觉得皮肤上有东……
-        </p>
-    </a>
-    <a href="../html/抽象艺术.html" class = "blog_tag">#抽象艺术</a>
 
 </div>
 <div class="block_divider"></div>
@@ -125,25 +112,6 @@
 <div class="block_divider"></div>
         
 <div class="blog_block">
-    <a href="/blogs/新疆印象.html">
-        <h3 class="blog_title">新疆印象</h3>
-    </a>
-    <p class="blog_date">2018/08/25</p>
-    <a href="/blogs/新疆印象.html">
-        <p class="blog_pre">
-            重发表序言：
-    两年暑假，访北疆南疆，也曾自擂是浮光掠影地窥见了中国这广袤的一隅的全貌了。
-    路途见闻过于庞杂，想到汪曾祺汪老的写法，做了一次尝试。至于效果，难以评说，且读吧。
-——202……
-        </p>
-    </a>
-    <a href="../html/游记.html" class = "blog_tag">#游记</a>
-<a href="../html/旧日志.html" class = "blog_tag">#旧日志</a>
-
-</div>
-<div class="block_divider"></div>
-        
-<div class="blog_block">
     <a href="/blogs/闲得慌瞎写点2.html">
         <h3 class="blog_title">闲得慌瞎写点2</h3>
     </a>
@@ -174,39 +142,25 @@
                 </p>
             </a>
             <a href="../html/日常.html" class="blog_tag">#日常</a>
-            <a href="/html/旧日志.html" class="blog_tag">#旧日志</a>
+            <a href="../html/旧日志.html" class="blog_tag">#旧日志</a>
 
         </div>
-        <div class="block_divider"></div>
-
-        <div class="blog_block">
-            <a href="blogs/一篇算不得游记的游记——洛阳游记.html">
-                <h3 class="blog_title">一篇算不得游记的游记——洛阳游记</h3>
-            </a>
-            <p class="blog_date">2018/03/29</p>
-            <a href="blogs/一篇算不得游记的游记——洛阳游记.html">
-                <p class="blog_pre">重发表序言：
-                        18年，我高一，第一次参加学校组织的研学游活动，要求一个小组写一篇文章，就写了，但是掺了点私心，名为作业，写作游记。
-                    这是一次失败的假公济私，欲作游记，又沾了作业，不伦不类。因此这篇游记是一篇算不得游记的游记，当初已经意识到了。
-                    ——2021/05/07
-                </p>
-            </a>
-            <a href="/html/游记.html" class="blog_tag">#游记</a>
-            <a href="/html/旧日志.html" class="blog_tag">#旧日志</a>
-        </div>
-
         <!-- list end -->
 
         <div class="block_divider_long"></div>
+
     </div>
 
 
 </body>
 
-<script type="text/javascript" src="js/window.js"></script>
 
-<script type="text/javascript">
-    //alert("this page is only for a test and most buttons are not clickable");
+
+<script src="../js/window.js"></script>
+<script>
+    window.onload = resize();
 </script>
+
+<script type="text/javascript" src="../js/window.js"></script>
 
 </html>

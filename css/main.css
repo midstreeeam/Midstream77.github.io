@@ -4,7 +4,7 @@ a{
 
 article{
     font-size: 1.1em;
-    line-height: 1.6em;
+    line-height: 1.8em;
 }
 
 .blog_title{
@@ -51,8 +51,8 @@ article{
 }
 
 .blog_tag_block{
-    margin-top: 6vh;
-    margin-bottom: -2vh;
+    margin-top: 7vh;
+    margin-bottom: 2vh;
 }
 
 .blog_content_block{
@@ -335,6 +335,12 @@ h4{
 
 .tag_block{
     margin-bottom: -3vh;
+}
+
+.tags_head{
+    font-size: 1.5em;
+    font-weight: lighter;
+    margin-bottom: 3vh;
 }
 
 .tag_title{
