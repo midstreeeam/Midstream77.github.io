@@ -2,6 +2,12 @@ a{
     text-decoration: none;
 }
 
+.blog_img{
+    width: 78%;
+    margin: auto;
+    margin-left: 3vw;
+}
+
 article{
     font-size: 1.1em;
     line-height: 1.8em;
