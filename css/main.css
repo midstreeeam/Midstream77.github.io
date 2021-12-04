@@ -156,7 +156,7 @@ article{
 }
 
 .cover {
-    background: url("https://thumbnail1.baidupcs.com/thumbnail/47e076a11n62895038519fc3f4e41d74?fid=290543785-250528-353727815410682&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-64cLKVFSu6mAbV7ssIt7rN2raT4%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8967222871374395967&dp-callid=0&time=1638540000&size=c1920_u1080&quality=90&vuk=290543785&ft=image&autopolicy=1");
+    background: url("/img/background.jpg");
     background-position: center;
     background-size: auto 100%;
     width: 100%;
@@ -167,7 +167,7 @@ article{
 }
 
 .cover_left {
-    background: url("https://thumbnail1.baidupcs.com/thumbnail/47e076a11n62895038519fc3f4e41d74?fid=290543785-250528-353727815410682&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-64cLKVFSu6mAbV7ssIt7rN2raT4%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8967222871374395967&dp-callid=0&time=1638540000&size=c1920_u1080&quality=90&vuk=290543785&ft=image&autopolicy=1");
+    background: url("/img/background.jpg");
     background-position: center;
     background-size: auto 100%;
     width: 30% !important;
@@ -179,7 +179,7 @@ article{
 
 .cover_top {
     position: relative;
-    background: url("https://thumbnail1.baidupcs.com/thumbnail/47e076a11n62895038519fc3f4e41d74?fid=290543785-250528-353727815410682&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-64cLKVFSu6mAbV7ssIt7rN2raT4%3d&expires=8h&chkbd=0&chkv=0&dp-logid=8967222871374395967&dp-callid=0&time=1638540000&size=c1920_u1080&quality=90&vuk=290543785&ft=image&autopolicy=1");
+    background: url("/img/background.jpg");
     background-position: center;
     background-size: auto 100%;
     width: 100% !important;
