@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../font/iconfont.css">
     <script type="text/javascript" src="../js/tools.js"></script>
-
 </head>
 
 <body>
@@ -42,37 +42,31 @@
     </div>
 
     <div class="content_right">
-
-        <div class="tags_head">#学习笔记</div>
-
-        <!-- list start -->
-<div class="blog_block">
-    <a href="/blogs/在 pPy 同志追悼会上的祷词.html">
-        <h3 class="blog_title">在 pPy 同志追悼会上的祷词</h3>
-    </a>
-    <p class="blog_date">2022/09/05</p>
-    <a href="/blogs/在 pPy 同志追悼会上的祷词.html">
-        <p class="blog_pre">
-            ……
-        </p>
-    </a>
-    <a href="../html/日常.html" class = "blog_tag">#日常</a>
-<a href="../html/学习笔记.html" class = "blog_tag">#学习笔记</a>
-
-</div>
-<div class="block_divider"></div>
+        <h2 class="blog_title">在 pPy 同志追悼会上的祷词</h2>
+        <p class="blog_date">2022/09/05</p>
         
-        
-        <!-- list end -->
+        <iframe id="iframe" src="../blogs/在 pPy 同志追悼会上的祷词_frame.html" name="content" frameborder="0" style="width: 100%;height: 65vh;"></iframe>
 
+        <div class="blog_tag_block">
+            <a href="../html/日常.html" class = "blog_tag">#日常</a>
+            <a href="../html/学习笔记.html" class = "blog_tag">#学习笔记</a>
+
+        </div>
+        
         <div class="block_divider_long"></div>
-
     </div>
 
 
 </body>
 
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#iframe").height(0);
+        var height = $("#iframe").contents().height() + 20;
+        $("#iframe").height(height < 800 ? 800 : height);
+    }
+</script>
 
 <script src="../js/window.js"></script>
 <script>
@@ -82,3 +76,4 @@
 <script type="text/javascript" src="../js/window.js"></script>
 
 </html>
+        
