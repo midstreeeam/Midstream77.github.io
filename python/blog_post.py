@@ -10,7 +10,8 @@ choices = {
     '4': '天文',
     '5': '学习笔记',
     '6': '抽象艺术',
-    '7': '更新日志'
+    '7': '更新日志',
+    '8': '投稿'
 }
 title = input('please input the title of the blog:   ')
 choice = []
@@ -30,6 +31,7 @@ for i in range(7):
     5. 学习笔记
     6. 抽象艺术
     7. 更新日志
+    8. 投稿
 
     ''')
     if(index=='s'):
