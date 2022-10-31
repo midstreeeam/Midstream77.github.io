@@ -12,6 +12,6 @@ class blog_func:
         if(time==''):
             self.post_time = self.time.strftime("%Y/%m/%d")
 
-        f = open("./input.txt", "r", encoding="utf-8")
+        f = open("input.txt", "r", encoding="utf-8")
         self.pre = f.read(100)+'……'
         f.close()

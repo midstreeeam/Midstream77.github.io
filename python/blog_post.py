@@ -1,4 +1,6 @@
-from blog_func import blog_func
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from blog_gen import blog_gen
 from blog_deploy import blog_deploy
 
