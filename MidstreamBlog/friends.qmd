@@ -1,0 +1,26 @@
+---
+title: "Friends"
+description: take a look my friends' website
+about:
+  template: jolla
+
+---
+<style>
+.title{
+    color: rgb(0, 0, 0);
+}
+</style>
+### [Winger Blog](https://blog.winger216.bid)
+to think and to share
+
+### [Loe's Blog](https://f5.monster)
+You can see me here XD
+
+### [Papasha](http://blog.ppsh.su)
+Обычный человек.
+
+### [Tianshu Feng's Blog](https://ftianshu.gitlab.io/)
+↑此人奆佬，%%%%%%%%。
+
+### [Cuchavira](http://coolas.me/)
+Coooooooool as her

@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "MidstreamBlog"
+  description: "Where you know me"
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/midstreeeam
+      - icon: instagram
+        href: https://www.instagram.com/loukaiyuan/
+    left:
+      - about.qmd
+      - friends.qmd
+format:
+  html:
+    # theme: sketchy
+    theme: lux
+    css: styles.css
+
+
+

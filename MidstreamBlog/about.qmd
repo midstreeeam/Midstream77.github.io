@@ -1,0 +1,42 @@
+---
+title: "About"
+image: profile.png
+about:
+  template: trestles
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/midstreeeam
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/loukaiyuan/
+    - icon: envelope
+      text: Email
+      href: mailto:midstream.lou@gmail.com
+
+---
+<style>
+.title{
+    color: rgb(0, 0, 0);
+}
+</style>
+### What is the blog about ?
+Anything / 随便写写<br/>
+Mainly Chinese<br/>
+Mainly Text / 网速太慢<br/>
+Hoping there could be English<br/>
+Hoping there could be pictures<br/>
+Contribute? / 欢迎评论 / 欢迎投稿
+<br/><br/>
+
+### Who is Midstream ?
+
+Family name: Lou / 我姓娄 <br/>
+Student / 学生<br/>
+Chinese / 中国人 / 爱国爱党<br/>
+Interested in a lot<br/>
+Good at nothing
+
+### How to get password ?
+
+Email me / 微信当然也可以
