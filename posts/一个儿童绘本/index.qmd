@@ -4,7 +4,7 @@ author: "Midstream"
 date: '2022-10-08'
 categories: ['抽象艺术']
 description: 街上捡到的，应该是一个儿童绘本罢。
-image: cover.png
+image: cover.jpg
 ---
 
 <img src="1.jpg" alt="" width="90%">
