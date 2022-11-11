@@ -2,7 +2,7 @@
 title: 大海日记
 author: "Midstream"
 date: '2021-11-20'
-image: "cover.jpg"
+image: "cover.png"
 categories: ['小说']
 description: 这几天，在这远离所有陆地的地方，郭大海总是在梦里回到深秋的曙光桥南。
 title-block-banner: true

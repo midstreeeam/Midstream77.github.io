@@ -17,7 +17,9 @@ website:
 format:
   html:
     # theme: sketchy
-    theme: lux
+    theme: 
+      light: [lux,light.scss]
+      dark: [cyborg,dark.scss]
     css: styles.css
 
 

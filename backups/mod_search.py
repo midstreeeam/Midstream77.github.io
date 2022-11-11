@@ -3,6 +3,7 @@ modify search.json to don't let the search bar show the posts that need password
 '''
 
 ban_blogs=[
+    'MidstreamBlog',
     '逐蛋者',
     '在这片土地上',
 ]
