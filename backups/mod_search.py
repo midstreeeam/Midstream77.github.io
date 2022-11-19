@@ -10,7 +10,7 @@ ban_blogs=[
 
 import json
 
-with open('docs/search.json','r') as f:
+with open('../docs/search.json','r',encoding='utf8') as f:
     search_dics=json.loads(f.read())
 
 new_dics=[]
@@ -18,5 +18,5 @@ for search_dic in search_dics:
     if search_dic["title"] not in ban_blogs:
         new_dics.append(search_dic)
 
-with open('docs/search.json','w') as f:
+with open('../docs/search.json','w',encoding='utf8') as f:
     f.write(json.dumps(new_dics))
