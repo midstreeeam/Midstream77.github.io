@@ -2,7 +2,7 @@
 title: '简评《美丽新世界的鼠鼠》'
 author: "Midstream"
 date: '2022-02-21'
-categories: ['抽象艺术','小说']
+categories: ['抽象艺术']
 description: 杰，小樱想喝醉，醉到像死机一样。
 
 ---
