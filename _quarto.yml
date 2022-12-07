@@ -1,16 +1,19 @@
 project:
   type: website
   output-dir: docs
-
+  
 website:
   title: "MidstreamBlog"
   description: "Where you know me"
+  site-url: "https://midstream.cn"
   navbar:
     right:
       - icon: github
         href: https://github.com/midstreeeam
       - icon: instagram
         href: https://www.instagram.com/loukaiyuan/
+      - icon: rss
+        href: index.xml
     left:
       - about.qmd
       - friends.qmd
