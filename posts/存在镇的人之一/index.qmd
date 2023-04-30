@@ -2,7 +2,7 @@
 title: 存在镇的人之一
 author: "Midstream"
 date: '2022-11-19'
-categories: ['抽象艺术']
+categories: ['抽象艺术','小说']
 description: 存在这样一个镇子，它叫存在镇。镇子上住着不多的人，发生着不少的故事。
 title-block-banner: true
 ---
