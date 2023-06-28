@@ -46,3 +46,12 @@ for i in soup.find_all('item'):
 with open('../docs/index.xml','w', encoding='utf8') as f:
     f.write(str(soup))
 
+
+import shutil
+
+source_dir = sys.path[0]+'/backups/blogs'
+destination_dir = sys.path[0]+'/docs/blogs'
+
+if not os.path.exists(destination_dir):
+    os.makedirs(destination_dir)
+shutil.copytree(source_dir, destination_dir, dirs_exist_ok=True)
