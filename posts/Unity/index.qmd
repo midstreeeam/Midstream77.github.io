@@ -1,0 +1,23 @@
+---
+title: 'Unity?'
+author: "Midstream"
+date: '2023-07-21'
+categories: ['日常','学习笔记']
+description: 我难以想象一个团队需要多么龌龊、变态、寡廉鲜耻、丧尽天良，才能开发出这样一个充满着剽窃、愚昧、劣质、敷衍、官僚、惺惺作态、自以为是的产品。
+
+---
+**Unity** is a cross-platform game engine developed by [Unity Technologies](https://en.wikipedia.org/wiki/Unity_Technologies), which is totally a piece of **shit**.
+
+Unity 毫无疑问是这个世界上最垃圾，最残忍，最邪恶，最无耻，最堕落的造物。它是如此令人作呕以至于我找不到任何适宜的类比，因为我所知晓的任何极尽污浊之物与之相比均显得可爱。我难以想象一个团队需要多么龌龊、变态、寡廉鲜耻、丧尽天良，才能开发出这样一个充满着剽窃、愚昧、劣质、敷衍、官僚、惺惺作态、自以为是的产品。而与Unity沆瀣一气的Plastic SCM更是只有过之而无不及，其对于git的取其糟粕去其精华，让它和unity更是交相辉映。Plastic应当尽早覆灭，尽早！
+
+Unity is an unequivocally repulsive, merciless, wicked, shameless, and morally bankrupt creation, plunging the depths of depravity in this world. It is so nauseating that no analogy I know of can even come close, for everything else pales in comparison. The very idea of a team sinking to such depths to develop a product riddled with plagiarism, ignorance, shoddiness, perfunctoriness, bureaucracy, hypocrisy, and self-righteousness is beyond my comprehension.
+
+Plastic SCM, in its collusion with Unity, takes the repugnance to new heights, rendering both Unity and Plastic an even uglier union. The obliteration of Plastic must become an urgent imperative, a necessity without delay, as its continued existence perpetuates the putridity of both itself and Unity.
+
+Unityは疑いなく、この世界で最もひどく、残酷で、邪悪で、恥知らずで、腐敗した創造物です。その存在は吐き気を催すほどで、適切な比喩を見つけることができません。私が知っている全てのものが比較にならないほど愛らしいです。私は、剽窃、無知、劣悪さ、手抜かり、官僚主義、偽善、高慢であるこの製品を開発するために、チームがどれほど汚れ、変態的で、不正直で、良心を持たない存在である必要があるのか想像するのが困難です。そしてUnityと結託しているPlastic SCMは、更にその一線を越えています。Plasticは早急に消え去るべきです、早急に！
+
+Unity est une création indiscutablement répulsive, impitoyable, méchante, sans honte et moralement corrompue, plongeant dans les abysses de la dépravation dans ce monde. C'est tellement écœurant que je ne connais aucune analogie qui puisse s'en approcher, car tout le reste pâlit en comparaison. L'idée même qu'une équipe puisse sombrer si bas pour développer un produit truffé de plagiat, d'ignorance, de médiocrité, de superficialité, de bureaucratie, d'hypocrisie et de suffisance est au-delà de ma compréhension.
+
+Plastic SCM, dans sa collusion avec Unity, porte la répugnance à de nouveaux sommets, rendant à la fois Unity et Plastic une union encore plus laide. L'éradication de Plastic doit devenir un impératif urgent, une nécessité sans délai, car sa survie continue perpétue la putridité de lui-même et d'Unity.
+
+阿门
