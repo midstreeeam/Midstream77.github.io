@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.267">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Midstream">
+<meta name="dcterms.date" content="2023-08-03">
+<meta name="description" content="上回，我追寻程式禅失败了，这回，我依然做好失败的准备，毕竟程式禅不渡无缘人。">
+
+<title>MidstreamBlog - 程式禅</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MidstreamBlog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../friends.html">
+ <span class="menu-text">Friends</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/midstreeeam"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/loukaiyuan/"><i class="bi bi-instagram" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">程式禅</h1>
+                  <div>
+        <div class="description">
+          上回，我追寻程式禅失败了，这回，我依然做好失败的准备，毕竟程式禅不渡无缘人。
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">小说</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Midstream </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 3, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<pre><code>midstream@LAPTOP-HAM25V2O:~$ python3
+Python 3.10.6 (main, Aug 03 2022, 22:40:16) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import this
+The Zen of Python, by Tim Peters</code></pre>
+<section id="一" class="level2">
+<h2 class="anchored" data-anchor-id="一">一</h2>
+<blockquote class="blockquote">
+<p>优美优于丑陋，明了优于隐晦； 简单优于复杂，复杂优于繁杂， 扁平优于嵌套，稀疏优于稠密。</p>
+</blockquote>
+<p>在曙光桥南地铁站的德克士里，禅师如是说。</p>
+<p>他告诉我，这世间万物轮回均恪守着这套规律。道可道，非常道，大道至简且一目了然，就像Go语言。把简单的事情做复杂很容易，把复杂的事情做简单很难。真正的禅就是化繁为简，化不可读为可读，化无序为有序，如果能够做到这些，哪怕冒泡排序也不是不能接受。</p>
+<blockquote class="blockquote">
+<p>任何问题应有一种， 且最好只有一种， 显而易见的解决方法。</p>
+</blockquote>
+<p>禅师说，越表面就越幽邃，越浅显就越深刻，越明了就越玄奥。</p>
+<blockquote class="blockquote">
+<p>特例亦不可违背原则，即使实用比纯粹更优。 错误绝不能悄悄忽略，除非它明确需要如此。 面对不确定性，拒绝妄加猜测。</p>
+</blockquote>
+<p>禅师把鸡翅骨嗦成无暇的半透光的白玉——他如炬的慧眼能看透鸡翅内在的程式，因而能带着常人难企及的刁钻和写意将那些冥顽的细肉剔入胃囊。</p>
+<p>很难想象，彼时野蛮愚昧的我就是在这样一个半地穴的土垒般的餐馆里，和许多原始人同族以及地上的蟑螂一起闻道，而逐渐开化的。直到后来禅师离去，这方地下的小空间和通向它的淤尘积垢的甬道仍曾是我们的朝圣地。呼啸而过的地铁是程式禅的铃磬。</p>
+<blockquote class="blockquote">
+<p>做优于不做，然而不假思索还不如不做。 很难解释的，必然是坏方法。 很好解释的，可能是好方法。 命名空间是个绝妙的主意——我们应好好利用它。</p>
+</blockquote>
+<p>再后来，那半间地洞在一场席卷京畿的大暴雨中被淹没，NewBalance的鞋印、涂鸦在墙上的代码、满地的头发、还有在辩经声中孕育孵化的悬铃木方翅网蝽幼虫、连带着禅师普渡众生的旧闻也一同被洪水带走，流入油腻的离壁沟，从水泥板的缝隙里一直渗到这座古城的最深处。</p>
+<p>“老师还会回来的，”盖说。我不置可否。他是整个曙光家苑最早遇到禅师的人，是第一个拜入禅师门下的人，也是禅师如同网络热闻一样被众人关注又被众人遗忘后，仅剩的一位追随者。他热爱程式胜过热爱美人，忠于禅师胜过忠于金钱，甚至我最早认识禅师也是通过他的引荐。</p>
+<p>没人知道盖的真名叫什么，不是他不说，只是没人愿意费脑子记住。记一个字比记一个名优越，更比记住两个指向同一个实体的不同称谓优越，没人想要两个指针。</p>
+<p>盖是我楼上的邻居，当时我才刚落宿曙光家苑仅仅数月，年轻、残废、而神经质，每日像僵尸一样拖着板结的身躯和异常的思想往返于曙光家苑所在的剧场路和城市另一头的一家国企，穷匮于单位给我的任务和酬劳，把灵魂托付给一位二流作家的众多三流小说。小说里的人都半疯，半傻，半残，罹患难以启齿身体和精神的怪病，还有市井轶闻，宗教神学，以及众多我闻所未闻的不朽著作的低俗引语，我看的终日头晕脑胀，却愈发不可自拔，总觉得身边藏着能人异人病人——但可不是吗，我看众人与我自己都是如此，也不是那胡言乱语的小说的问题，只是我们把我们的能、异、病藏起来了，或是见的人多了便不觉人能，不觉人异，不觉人病了。我乘地铁回家，我们都乘地铁回家。湿漉漉黏糊糊的我们在车厢里，缺乏日间行动的浮肿的躯干们互相摩擦，像一鞘白胖的半孵化的虫卵挤在雌虫的腹里，眼珠子咕噜噜的转，肉芽样的四肢划动。我们压的扶梯转不动，推搡着在甬道里前行。下一班地铁又到了，无数个小窗户里是数不清的流汗的脑袋、千万双眼，像鱼市，像电影里的邪恶的实验舱。门开了，他们被释放出来，成为我们。</p>
+<p>盖在楼上奏乐，这让我无法忍受。我从人群中脱身回到我避难的寓所，扒下浸透了自己和人群分泌物的衬衣，躺在床上我的眼睛和太阳穴还在跳。盖的音响发出的是一种听不到但却让人揪心的低频波，伴随以从他肿大的野兽的扁桃体处发出的呕吐般的喉音。我的脑子在头壳里蠕动，要从五官七窍冲出来。盖本应是一位大师级的黑人说唱歌手，这是大家都承认的，但却错被生成了亚洲人，我们可怜他被老天玩弄的身世，而不忍心拎着擀面杖一脚踹开他从不关上的破烂大门，冲进他贴着纹身裸女海报的房间，把他宝贝音响砸的稀巴烂。盖玩过电子音，玩过吉他，玩过键盘，会一只手摆弄电子合声器一只手弹琴，他除了工作什么都会，什么都有。他曾被对面（曙光家苑的房子和房子间距过小）的人举报过吸毒，不知是因为那户人家真的看到了什么还是仅仅是被他形销骨立，佝偻而惨白的身形吓到，有人来查，但没被查到证据。他自称是对面的婆娘觉得他的歌词会带坏小孩，恶意举报的。自那以后，盖在他的创作中加入了大量对敌方的咒骂，并在面向对方的卧室墙面上涂鸦恶语，终让那位母亲自废了一扇窗，再也没拉开过窗帘。那是盖为数不多的胜仗之一，他无数次呲着他的间或被涂成彩虹色的龅牙找我说起此事。</p>
+<p>我是乐于听盖说话的，他身上来自美国和帮派的的无法无天的消沉的活力于我，就像是一剂吗啡于行将就木之人，惶惶然反应过来自己还活着：撸一把胳膊，捏一下油腻的鼻头，把双手放在肚子上，原来我因久坐而有些畸形的身体还在运转。上班，下班，白晃晃的灯管，地铁站里都是人，男人，女人，装在双肩包里的衬衫，黑色的小皮鞋踩在台阶上，白色的短袜，也可能是船袜，外人看不见，只有脚跟处的创可贴，jk裙或者是西裤，西裤配的是运动鞋，被静音的手机在裤兜里亮着，薄薄的布料根本挡不住，除了自己谁都能看到，但是没人看，因为忙着走路或忙着发呆，要吃早饭，从便利店里拿走一个面包，他或者我晚上还要再来一次，买一些关东煮，就坐在玻璃前的小桌子上吃，边上还有别人吃一样的或者不一样的，不会有任何交流也不会有任何人想要交流，看手机或者看窗外，窗外是黏稠的黑夜，罕有几个人在里面游泳，只有便利店是成年人的乐园，明天又要上班，也可能会是休假，但是上班还是休假并不是很重要，周末并不会比上班更令人雀跃，只有学生才会在周五的晚上去工体蹦到天明，还是学生好，节日的前一周就是节日了，周五的下午也是周末，抽烟是为了装逼喝酒是是为了醉，醉了有人问数学题还有人录像，失一次态会被调侃一个学期，睡一个懒觉起来微信有未读消息，甚至有很多，回都要回半天，满脑子吃喝玩乐，还要打球，出一身臭汗再洗一个冷水澡，呵，打球，上一次打球是什么时候，记不得了，上一次洗冷水澡似乎的时候似乎还是学生，不能洗冷水澡了，洗冷水澡会着凉，打上泡沫打开花洒，头发又把下水道堵住了，用手去扣，几只黑色的小小小的虫子从下水道飞出来，总归好过苍蝇蚊子，洗完澡又出一身汗，城市里没有凉风只有热风，站在路口像是站在空调外机边上，热风吹得一身鸡皮疙瘩，原来鸡皮疙瘩不仅可以防止热量流失还可以防止热量进入，公司有冷气，冷气是发酵的，一股子人味儿，冷得又一身鸡皮疙瘩，冷的人肚子疼，厕所里是满的，几扇门都是锁住的，不知道哪一间里亦或者哪几间里一直有压抑的苦痛的或解脱的喘息，黏糊糊的喘气声只让人想尽快远离，有人在工位吃煮鸡蛋，口腔里煮鸡蛋的味道竟然臭过韭菜大蒜，大家都在电脑上看新闻，股票涨了又跌，美国又发生枪击，领导人又发表重要讲话，讲的是政治经济军事社会文化主旨改革思想台湾香港绿色落实能源伟大复兴贯彻民声生产全球化国际化中国梦民族梦坚持开放稳中向好各族人民新希望新政策新征程，台风去了又来，美联储升息降息，全球变暖，物种灭绝，冰川融化，海平面上升，马尔代夫就要被淹没，紧接着就是日本，香港，纽约，上海，我们都要被淹没，淹没！淹没！淹没！成为庞贝，成为亚特兰蒂斯，没有人能活下来，没有！没有！没有！暴雨就是预兆，老城墙里的古树被雷劈掉了一根粗大的枝，马路成为一条条小河，车一开过去都是泡沫，打不到车，因为所有人都在打车，于是又要走路，在雨里走路，把皮包夹在腋下，领带是歪的，白衬衫贴在身上，有人鞋掉了，回头去捡，撞在后来者的伞上，黑色的小皮鞋踩在台阶上，白色的短袜，也可能是船袜，外人看不见，只有脚跟处的创可贴，创可贴沾了水就不粘了，从脚跟掉下来扒在人行道的砖上，我想跑。我跑不动，如果我此刻还是学生，我定会把包顶在头上发狂似的跑向地铁站，就像曾经追逐末班的公交车那样，和三五好友一起，跑过水坑水花能溅出五米远。但我隐隐作痛的胯骨和羸弱的双腿不允许我跑，也没有人能和我一起跑。人们都不像是活的，都是游戏里的npc，迈着一样的步伐回到一样的寓所，躺在床上，用手机浏览短视频，上划上划下划，下划下划再下划，一个主播一个主播又一个主播，源源不断比比皆是头头是道津津有味孜孜无怠啧啧赞叹！可主播和主播都是一样的主播，在一样的房间里拍摄一样的视频。流水线的生产，流水线的消费！可怖！可怖！可怖！我抓住救命稻草一样抓住盖，盖是活的，至少在曙光家苑乃至整条剧场路，他的同质化没那么严重。</p>
+</section>
+<section id="二" class="level2">
+<h2 class="anchored" data-anchor-id="二">二</h2>
+<blockquote class="blockquote">
+<p>Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts.</p>
+</blockquote>
+<p>通过盖的介绍我第一次遇到禅师的时候，他说的是英文，这在当时狠狠地震撼了我，虽然后来证明他的发音都是错的。如果一个人已经会了一门技能，比如说，外语，那为什么又要用另一门技能谋生呢？比如说，编程？</p>
+<p>“先学会英语，然后才能学会编程，”禅师说。他说起话来很有亲和力，不虚伪不倨傲不轻浮不做作，”你要知道什么是integer，什么是boolean，什么是vector。“我不知道，我不仅不知道什么是integer和vector，我更不知道这位中年男人从哪里走来，要向哪里走去，为何停留这里，为何会英语、会编程，知道什么是integer，什么是vector。他是从我日日阅读的书里走出来的神秘者、异能者、玄奇者，他定然担负着什么特殊的使命，不可言说不可窥探，往这里来，往别处去。</p>
+<p>“目司探看，是标尺是探针是gdb是perfetto，能剥离伪装、剥离表象、剥离套在山石树木风雨雷火外的那层壳，使露出里面的程式来，于是可以看清内存、看清调用栈、看清世界万物；指司创造，是针线是画笔是compiler是interpreter，能抓握、搬运、书写、让虚无的程式运转，于是可以化元语法为语法，化抽象为具象、化海市蜃楼为危塔雄城；心司静悟，是明鉴是方塘是graph是DNN，能思考学习、抽象原理、类比推理，于是可以化糟绪为程式，化混乱为明晰，化腐朽为神奇。“禅师用如炬的目光洞穿我，”你的程式很乱，说明你的心绪是衰败的，是曲折的嵌套的隐晦的丑陋的，你的作息很稳，却稳不住你的呼吸你的汲养，你的红细胞泛着一氧化碳的黑色，像吸了一大口汽车尾气一样，你的眼是盲的，指是僵的，心是打结的，里面写满了goto，你懂吗，goto，无条件跳转。“禅师叹气。</p>
+<p>“盖，你的朋友状态很糟糕。”</p>
+<p>于是，后来我向禅师讨教长寿的心经秘窍，在盖的小客厅里，我们各自团缩起来围成一圈，夏天日落后的天穹还会继续亮一阵子，亮到不用开灯，屋内又幽晦又清晰，像原始人的石窟，我们讨论着天文、异象、祭祖、毛皮和火种、执掌雷电和命运的大神，盖的西海岸风格的挂画是粗狂的石刻。禅师说他在成为一名老师之前也曾焚膏继晷，书写过十万行百万行的代码，是java的魔术师，sql的通灵者，网络通信的扫地僧，能用php把甲方耍的团团转，css是他最熟悉的语言，其次是英文，第三才是中文。腱鞘炎知道吗，腱鞘炎，他说起腱鞘炎，医生看着他指尖的老茧，遗憾告诉他此后不能再弹吉他，但他从来不会弹吉他，他指尖所跃动的主场是一把看不见字母的键盘。他又说起肩周炎，颈椎病，肿大的肝脏，曲张的静脉，腰间盘突出，脊髓被压迫着要半身不遂。人体工学，你们听说过吗，工学椅，升降桌，分体键盘，羽毛球是好运动，你要仰起头，你会打开肩膀，牵引，推拿，盲人按摩，按摩是有大智慧蕴含的，凡夫俗子难以揣测，你要精通梵学、魔学、算学、神秘学、征兆学、词源学……</p>
+<p>我们至今不知禅师为何离开曾经日进斗金的外包业务转而成为一名培训学校的老师，或许是积劳成疾不得不退隐，或许是看透尘世散去千金，却愿自己所悟之道薪火不断，或许是悲悯世间难独自成道，转而化作我等痴呆者的摆渡人，又或许……在这产业变迁的年代，我们都各有猜测，隐隐拼出一个务实的雏形，但我至今不想过多的思考这种可能。窗外的天空呈现出惨淡的色彩，像一大块淤青，盖的家在三楼，楼边死树成为一团阴毛一样的扭曲剪影。今天的讲道结束了，禅师带走最后一缕光线，留下我们三个亚健康者沉默着，无话可说，无处可去——我，盖，还有陈妙。</p>
+<p>陈妙是剧场路尽头那座旧剧院边的一间咖啡厅的服务员，和她的一位同事分享曙光家苑的一间公寓，因食宿均由咖啡馆负责而导致她竟是我们这群病人中最阔绰的一位。她说她的老板是一位耳顺之年的老头，在城里还有另外几家咖啡馆和酒馆。哦，慷慨的企业家！我想他必然西装革履，文质彬彬，喝不加冰的威士忌，懂咖啡红酒和雪茄。陈妙的同事兼室友是一位大波浪美女，自誉或自贬为咖啡师，但她并不负责做咖啡，反而常出差，行李箱里是高跟鞋和晚礼裙。美女咖啡师遭尽剧场路沿路的阴湿烂仔们觊觎，简直可以谱写一部《曙光家苑的美丽传说》，哦不，或许不行，因为如本人和盖这类借宿者并无胆识和能力来推动一场悲剧，只能偶尔无害地远望她离去或归来的窈窕身影。我第一次在深夜的便利店见到陈妙时她们俩就相伴而行，所以后来在花房和陈妙攀谈上的时候，我也并不敢说没有借此和美人儿拉近关系的想法，不知道盖后来接触陈妙是否也有这种心理作祟。坦诚的说，我和盖的行动过于幼稚和拘谨了，以至于美人或许从来都不知道我们的存在。那时的我才刚毕业，对社会上的人事物都煞有其事地给予郑重的敬意，看谁都是前辈，做什么都不敢逾矩，其实对于美女咖啡师，我也仅仅只是渴望接近而无任何其他念想。我不知盖怎么想，他嘶吼着无法无天的歌词，但我知道他时常比我还谨小慎微，是一只长得像狼的哈士奇。因此，当我知道被我给予了等同敬意的陈妙还没成年的时候，我只感到无比绝伦的荒谬——她甚至比我那位备战高考的表弟还小一岁。哈，我原来就是那位天天徘徊于院门口的小老头，一把年纪却见谁都点头哈腰，任后生颐指气使！我自己把自己的履历，心智，声望，尊严，都排在曙光家苑鄙视链的最末端。盖也是如此，所以我们两个天差地别的人才能在彼此身上找到一股熟悉感，因为在整个儿曙光家苑，只有我们两个自居为社会的实习生。</p>
+<p>平心而论，陈妙也算一位耐看的姑娘，只是被同住人盖住了光芒，她高挑的身姿常令我自惭形秽，觉得这副身板妄称男人，特别是考虑到她那位篮球队的男友，我更觉得自己是发育不良的残废。“我学的是数据和会计学，你知道什么是会计学吗？反正我是不知道。”本人也不知道，我只知道若算上食宿，她赚的远比我这位堂堂本科生要多。她爱看电影，憧憬浪漫，满脑子都乐队的歌词。要去小岛，小岛要在北极圈里，冰川流向暗色的海，头顶是北极光的缎带，每天只有四个小时太阳：两个小时是日出，两个小时是日落，要俯下身，用冻得通红的小手拨开雪，有坚强的小黄花，要喝茶，最好是热腾腾的绿茶，热气拂过脸孔，睫毛上是亮晶晶的小水珠，要骑摩托车，意大利和美国，骑杜迪卡或是雷哈，坐在后座上抱住男友的腰，哦不，自己骑车也很酷，把手上要摆小黄鸭，夕阳照耀在艾玛非海岸公路或加州一号公路上，这辈子一定要去，文章里说中国的海岸线朝东，难见日落，太阳落进大山里，追进去能看见银河，银河落下去升起来的是云雾，云雾闻起来凉爽柔软，山里有伸向天空的大天线，对着宇宙深处发射与接收信息，发出奇怪的像是说话的噪声，他问你相信外星人吗，你认真地在天线下思考外星人的问题，你知道吗，宇宙的终极秘密是42，于是聊宇宙的秘密，还有星系尽头的小餐馆，小王子有一天看了44次日落，本来是43次，哦，可爱的可怜的小王子，山里会下蒙蒙的雨，踩着荒草石板离开，身后遮天蔽日的天线骨骼缓缓转动，雨滴打在沥青路上，不赏山里的雨，赏城里的雨，铅灰色的布景里只有消防栓红得刺眼，窗内有鲜艳的小靠枕，雨会停，窗板像是冰糖做的，天上有金光，玻璃晴朗，橘子辉煌。</p>
+<p>小陈妙崇拜她的正在念书的小男友，因而对本人也产生一股子敬重——有幸本人毕业的院校名气更大。因为我和盖称兄道弟，陈妙也连带着高看盖一眼，虽然他俩学历相当，音乐品味上更是不甚对付，仅有的共识是不听《成都》。不过，她却没有继续因为我和盖对禅师的尊敬而尊敬禅师，她的眸子、她的鼻息、她的子宫、她血管里奔涌的雌二醇和黄体酮、她十七岁少女的金色的心，都本能地鄙视着这来历不明的无妻无儿的中年男人。我和盖不会劝她，因为她不是程式的禅的有缘人——她不想要也不需要一份新的工作和薪水，她有个慷慨的老板——不同于我们。不过，最近陈妙从咖啡厅被调班到酒吧，工作地点仅相距50米，但上下班时间点相差了9个小时，这让她女人的身体有些不适，我和盖就拉她来听禅师讲讲职场养生学。”呵呵呵，你们觉得我博学是因为你们没有到大公司工作过，没和上层的人士做过交易进过晚餐，“禅师连连摆手，”学无止境，业余里，我只能勉强算个杂学家。“</p>
+</section>
+<section id="三" class="level2">
+<h2 class="anchored" data-anchor-id="三">三</h2>
+<p>禅师给我们讲编程，不过在那之前要先学为什么要学编程，我其实是有些好奇，为什么要学为什么要学编程，但我忍住没问，害怕引出他过多过深奥的哲学、禅学和方法论。禅师曾有学员甲，拜入门下后学习java，短短两个月就从一名小混混飞升至某知名大厂，又有学员乙，曾因短视成为失败的员工和投机者，被禅师指明了方向成为前端后财务自由，更有学员丙丁戊之流，群星闪耀，举不胜举。“你们要选定好方向，想想自己梦想成为什么样的人，”语重心长，谆谆不悔，禅师给我们看了他呕心沥血整理的各种技术和方向的学习路线，“有线路有计划的学习，才能少走许多弯路。”</p>
+<p>前端，后端，数据库，java，python，php，十八般兵器，一条条熠熠生辉的金光大道！只可惜你我眼界狭隘，气力萎靡，无法让如同禅师般样样精通，成为一名全栈工程师。什么是全栈，全栈就是所有，就是程式万法的集大成者，一木成林，一人成军，操盘全局的每一行代码。多么科幻，多么炫酷，禅师在那黑漆漆的程式的窗口里操作，密密麻麻的字符滚动，是极客，是学者，是恐怖的网络骇客，是钢铁侠，是比尔盖茨，是程式员，这就是程式员。笔记本的风扇叫嚣着，吹出滚烫的风，桌面侧边的五花八门的一个个加速球都变成高压的红色，禅师不为所动，指尖跃动着，任务管理器里的波浪曲线高高低低，他甚至不知道什么时候抽空把每个球都点了一次加速，交织、跳跃、凝聚、升华，好一曲程式的华尔兹！</p>
+<p>整型数、浮点数，分支和循环，禅师教的是python，我们战的是未来。数组，变量，字典，集合，总把冒号打成花括号再退格，写完continue或是break总要加一个分号，缩进，缩进，再缩进，哦，这既不扁平也不优雅，他要优化，优化，再优化。禅师念给我们的的程式禅是python的禅，是蟒蛇的烹饪艺术，你在终端里输入<code>python</code>，再输入<code>import this</code>，对，你试试，无法将“python”项识别为 cmdlet、函数、脚本文件或可运行程序的名称？哦，你要配置环境变量，算了我先给你们讲一下操作系统。</p>
+<p>Windows7，macOS，哦，令人怀念的XP，windows 10？你们知道吗，真正的开发者追求的是稳定而不是新，现在全世界还有无数的python2.7在运行，嗯，你们抽空把windows回退一下，要不直接用centOS算了，大公司都用centOS，对的对的，这是linux，但是如果有人和你说linux是操作系统，那这个人显然水平也就如此了，外行，人云亦云，知道GNU吗，应该是GNU/Linux才对，不得不提到理查德、点儿、斯托曼，是他开发了GNU，什么是GNU？哦，GNU是GNU Not Unix的首字母缩写，呵呵，GNU Not Unix里的GNU的意思也是GNU Not Unix的缩写，你们有不理解的先听着，后面都会学的都会学的，我可以先和你们说一下，这个叫递归，欸对叫递归，在我们的算法课里会讲到的，非常重要，欸，非常重要，我的算法课程有电子版的，在网上可以搜到的，前三节是免费的，嗯，这个收益本身就是可有可无的，重点是让你们学到干货，在求职市场里有竞争力，就我们熟知的这些大公司啊，大企业啊，他们招聘的时候怎么样，欸，都是考你算法的题目，所以可想而知我们这个算法课的重要性，一定要认真学啊，认真学。</p>
+<p>禅师说他巅峰的时候曾有几百名学生，可仍然觉得自己的力量太过微薄，于是离弃，和北极光一起南下，寻找新的可能，恰在曙光家苑落脚，去往哪里？或许要继续向南，去往更有活力的地方，学无止境，禅师说。但他似乎并不只是在这里落脚这么简单，他堂而皇之地开了班，把大广告贴在自己家窗户上，小广告贴在别人家窗户上。后来我们才知道，在平日我们上班的时候，还有许多孩子来听禅师讲道。禅师喜欢孩子，许许多多可可爱爱的小生灵，他们需要禅和真理。这是陈妙和我们说的，她换到酒吧的夜班以后白天都在院子里，彼时院里只有老人和孩子。无论如何，大约禅师到来的一个月后，在整个剧场路便可以算得上是德隆望尊了。“现代社会，浮沉不定，步履不停，逐利不逐心。”禅师叹气，“为你们，我授程式禅，架登云梯，可这是一条逐利之路，程式禅让人摆脱愚昧和贫穷，带来黄金和名望，但你们要守住本心。”</p>
+<p>哦！程式禅，大梵天！明亮似火轮，普照如太阳！盖高声诵经以传播福音。每周每日，院门口的象棋摊边多出了新的集会，有时在曙光桥南地铁站的德克士，这里有科学的迷信言论和一手的二手信息，自由软件，公司动向，开源社区，要阅读阅读hackernews文章的博主的文章，总结总结github trend的repo的trend，新的语言崛起了，c++恐将被淘汰，这个最新的神经网络竟然打败了CNN，不可思议，什么，最快的编程语言竟然是zig，至于什么是zig，这要去问问禅师，谷歌微软，腾讯阿里，海外巨头，国内电商，招聘了，裁员了，大神发话了，牛人跳槽了，这个领域极缺人才，那个行业缔造神话，蜂拥而至，蜂拥而至，找不到工作是暂时的，结构性调整，市场是对的，只是情绪出了点小问题，php是世界上最好的编程语言，前端大有可为。</p>
+<p>陈妙每次路过的时候，都会从鼻孔里发出一个不屑的促音。</p>
+<p>我们散步。剧场路是一条狭而短的林阴路，行道树高而合冠，滑腻腻的夏夜，我们走在一只蚯蚓的肠里。剧场路一头是曙光桥，另一头是一座老剧院。老剧院很老了，曾被修缮、启用、废弃、再修缮、再启用、再废弃，墙皮像树皮一样生长，剥落处能看到一层层的年轮。有人说老剧院的某一层墙皮里夹了很多张大字报，上面冤死者的名字被粉刷起来，保存的比他的碑还好，至于具体是哪一层，没人说得清，反正肯定不是最里面一层，剧院落成的时候还是民国呢。剧院的形很气派，但并非是中式的那种气派，从被繁荫包裹的剧场路窥视那一头的剧院，总觉得这短短的小通道从华北一路通到了上海滩。陈妙爱上海，但我不。禅师说，上海的摩登女郎清晨从弄堂中醒来，提着粪桶去苏州河里用上游洗刷过的水继续冲洗，回到家里，画上红唇眼影穿上礼裙，喷上香水，才能款款走向外滩，禅师又说，男人，他看向我和盖，男人的简历就是女人的脸、胸、屁股，你们要学会打扮，必要时不可吝啬假体，要把硅胶捏出一个造型然后塞进皮肤下面，鼻子一定要挺，胸和屁股一定要翘。那时候，禅师提供的服务也包括“简历渲染”。”世界是男人的，所以女人用美貌主宰男人；世界是老板的，所以员工用履历主宰老板。“陈妙说，为什么不是员工依附老板，女人依附男人？”依附亦是主宰，主宰亦是依附，“禅师说。“世界更是阔佬的，但只有极美丽的女人或是极优秀的简历才能主宰阔佬。” 我想，陈妙的室友那样美的女人，究竟能主宰多少男人，或是多阔的阔佬。她每每在我们的目光里推着行李箱离去的时候，是否怀揣着主宰世界的豪情壮志。</p>
+<p>“我想明白了，我要去工作，”盖对禅师说，“你是我命里的贵人。”</p>
+<p>剧场路的树开了不知道什么花或是结了不知道什么果实，落在地上、台阶上、共享单车上、灌木和栏杆上，堆积起厚而均匀的一层，月光透过树的缝隙下来，白的，像是刚下过一场大雪，我们从上面踩过，脚下发出破裂的声音，还有一股什么味道，又恶心又浪漫。我们一直走到凌晨。 ## 四</p>
+<p>禅师偷袭似的来到剧场路，又偷袭似的离开了，仿佛被人追杀一样，消失在一个宁谧的夜，等人们发觉他所租住的房间窗口的广告牌消失的时候，或许他已经离去多时了，除了几节没上完的幼儿编程课程，和保我们找到新工作的诺言，他什么也没带走。院里的人走形式似的咒骂几句没有被退还的课费，没人在乎这些嚣张而顽劣的小接班人们是否在放弃了电子琴、素描、围棋、跆拳道之后再多放弃一个编程。盖的网页项目写了一半后被他自己搁置了，听说又有最新动向，技术又要迭代，那么，与其将要在学成之前被淘汰，不如先自己把自己淘汰。我的情况也相近，我开发的python后端在尚未完成三分之一的时候就陷入了永无止境的漏洞地狱。我和盖最后只能相信，程式禅或许不渡无缘人。其实在剧场路，甚至曙光家苑，有三五天赋异禀者或是废寝忘食者，做出了微信小程序或是记事本小软件，挂在应用商店售卖，获得了极其不菲的收益以至于每周可以多吃一只瘦肉包，我和盖表面上恭维，私下里却嫉妒得很。也听说有人找到工作了，用禅师亲手操刀的简历，不知道去了哪里。</p>
+<p>禅师虽带走的不多，但留下的痕迹却不少，可是再后来就是我说过的那场大暴雨了，把程式禅的旧迹荡涤得干干净净。我总觉得这场雨定然在禅师的预料之中，他或许是察觉到大水将近，于是消失，又或是这一切在他来之前就已经被安排好了。</p>
+<p>曙光家苑逐渐涌现了种种流言，有人说禅师是个骗子，并迅速成为了共识，于是曾经买过课的家长，以及我这类上过课的成人，都成了其他人展示慈悲和机灵的工具，吃亏的人并不在乎，但是被说的多了又恼羞成怒，前去报警，无功而返。没多久，又有更新的说法孵化——禅师实际上是美国派来的特务。这种猜测很快席卷剧场路，越来越多的证据被人们挖掘出来。他会说英语，并乐于说英语，他狡诈，精通骗术，精通伪装，“简历渲染”就是最好的佐证，他常吃西式快餐，他说起中文来总装模做样，更重要的是，他无妻儿，更没有提起过其他家人…… 当时普天之下正是抓特务的热潮，众多的打入我方多年的特务在各地被揪了出来，剧场路自然也不能缺席！这场风波愈演愈烈，人们凭着记忆又画出了禅师的画像，摸出了禅师改过的简历作为证据，再去警察局，再去报案！一天晚上，陈妙上班前找到我，问我怎么看禅师是特务的新闻。</p>
+<p>我看着这位比我小了五岁还多的姑娘——不知道从什么时候开始，她的妆容变得越来越成熟了，外表看起来比高中就停止发育的我显得世故得多。</p>
+<p>此刻满院子的狂教徒们正寻找着禅师这位特务的同伙，我自然什么都不敢说，“等公安局的结果出来咱们不就知道了。”</p>
+<p>“大海，”陈妙喊我的名字，“我感觉……他不像是特务。”</p>
+<p>“你之前不是不喜欢他吗？”</p>
+<p>“不喜欢是不喜欢，我不喜欢他是觉得他有点……假惺惺，或者说猥琐。”</p>
+<p>我一时间不知道说什么，甚至感到有些窘——我自知我的身体、鼻头冒出来的黄澄澄的脂肪粒、以及肠道里的炎症，都在迅速地且明显地向禅师的方向靠近，且我还没有他的自信或是骄傲，我的精气神也是颓的。相比起来，陈妙是那样青春靓丽，而我是那样……猥琐。</p>
+<p>”我在职校的时候遇到过很多猥琐的人，他们都一无是处。“陈妙没有察觉到我的沉默，”这种人只是坏心思多一些，爱占小便宜，不可能是特务的。“</p>
+<p>我是愿意听到有人支持禅师的，不过陈妙的理由让我又不是很想心安理得地接受。我想，十七岁的少女陈妙已经有了特异的直觉，可能是嗅觉，性成熟的女人才能特有的嗅觉，能通过荷尔蒙的味道分辨男人。她必从禅师身上闻到了熟过头的腻，像是软塌塌的猕猴桃那样，一捏就会冒出水来，像是体内的过剩的雄激素，不会促进性征的勃发，却会造成脂溢性脱发。我没有理由不相信陈妙的嗅觉。我屏住呼吸，怕她嗅到我身上早衰的味儿。</p>
+<p>“但我不知道为什么，我总觉得，他好像也挺可怜的。”陈妙说。我没有觉得禅师可怜过，我只觉得自己可怜，陈妙应不是无稽之谈，她应该是又嗅到过什么。陈妙没有停留太久，她要去上班。</p>
+<p>禅师是特务的学说在等来警局的证实之前就没落了，因为一个人的到来，应该说归来。他就曾是曙光家苑的天才，被程式禅眷顾的幸运儿，拿着禅师给的简历前往外地打工的人，他回来了。他说，他理解了禅师为何放弃开发而选择成为老师，为何曾提到过颈椎病、肩周炎、腱鞘炎、静脉曲张和腰间盘突出，为何会懂推拿、人体工学、营养学和健康学。程式禅的有缘人可能依然不够有缘，他没有坚持下来，他说他的工资不高，不是行业的问题，是自己的问题，学无止境，学无止境。那禅师呢？他说在这座城的外面，程式的业内，偶尔有人直到禅师，他不是什么特务，以前确实是做外包的开发人员。至于是不是骗子，那就见仁见智了，简历都要渲染，别的事情渲染一下也合乎情理。</p>
+<p>随着外出者的归来，程式禅被彻底地证明和声乐、散打、健身等一样无效，闯入者离开了，出走者回来了，禅师和他的程式禅的一切就像曙光家苑打了一个嗝、放了一个屁，后面的日子接着过，以后还会打新的嗝，放新的屁，可能会更响。</p>
+<p>我也应该打一个嗝、放一个屁之后一样的回到我曾经的生活里的，整个曙光家苑都是这样的。可我好像回不去了。我没法集中注意力，也没法使我的精神懒散，我走在大街上，看到一个个匆忙的背影，总感觉那个人是禅师，陈妙，或者是我毕业以后就再也没有见过的中学同学。我发现，我有很久没有看那本神神叨叨的小说集了，很久没有在上班路上盯着别人的脚后跟看，很久没有闻到公司空调的酸臭味了，很久没有听到过楼上的盖的嘶吼了——哪怕我的每个白天都应是一样的。程式禅之前的生活成为了一段苦难，我脱离的时候竟然没有察觉，直到我即将再次步入的时候我才反应过来，好像程式禅确实给我的生活带来了些许明朗，虽然是一场假的梦幻。</p>
+<p>我打开曾经做了一半而荒废的python项目，这是我在禅师离开之后第一次打开我的代码编辑器。我想把那个项目做完了。外出归来者的经历告诉我，或许我做完了依然和程式禅无缘，可我并不想思考那么久的以后，我只想回到修行程式禅的日子里，最好这个项目我永远也写不完。</p>
+<p>我对着项目发呆，我竟一行代码都不认识。真的是我自己写的吗？我记得是这样的。我的记忆是真实的吗？我不知道。禅师和程式禅到底来过吗？我更不知道了，那场大雨冲走了一切，可能我昨天其实还在看那本疯癫的小说，地铁上盯着别人的脚后跟，闻得到公司空调的臭味，楼上的盖还在叫唤，只是我得了什么癔症，也可能是整个剧场路的群体癔症，很正常，在那本小说里这一点都不离奇。</p>
+<p>盖会和我一样吗？是盖最早引我见禅师的人，如果整个剧场路除了我，还有别人没法回到生活里，那就只能是盖了。我静静地等盖的音乐再次奏响。</p>
+<p>盖的低音炮响起来了——我感到巨大的悲恫，原来程式禅是只有我一人患上的精神疾患，与盖、与禅师、与大雨无关。可是，可是那些话就还在我的耳边！</p>
+<blockquote class="blockquote">
+<p>优美优于丑陋，明了优于隐晦； 简单优于复杂，复杂优于繁杂 扁平优于嵌套，稀疏优于稠密。</p>
+</blockquote>
+<p>我曾经听到，我依然听到，我确实听到。不是来自于我混沌的精神海，似乎来自于楼上的盖，他没在呐喊他的黑人音乐，他在呜噜呜噜的念经！我上楼，一如曾经无数次幻想的那样踢开他的破烂的房门而冲进房间里。</p>
+<p>盖或许是真的开始吸毒了，也可能他早就吸毒但我不了解，我不知道程式禅曾究竟给他带来过多少希望或是救赎。那场大雨来临的时候，盖的心里应该是舍不得的。</p>
+<blockquote class="blockquote">
+<p>任何问题应有一种， 且最好只有一种， 显而易见的解决方法。</p>
+</blockquote>
+<p>盖还在念。我不想打扰他，悄悄退出了。</p>
+</section>
+<section id="五" class="level2">
+<h2 class="anchored" data-anchor-id="五">五</h2>
+<p>剧场路的一年四季是十分鲜明的，但我却数不出那场大雨之后又过去了多少个季节。盖越来越昏昏沉沉，一开始我和陈妙还时常去照看他，后来他自己也觉得过意不去，回了老家。陈妙分手了，她的美女室友也搬走了一阵子，不知去了哪里，换成了一个年纪大一些的女人，这位是一个真正的咖啡师。</p>
+<p>我还会在晚上去剧场路散步，就像禅师还在的时候的那个晚上。禅师离开后我们保留了这个习惯，于是在陈妙休息的晚上，我们三个散步，后来盖也离开了，于是我和陈妙两个人散步。我期盼着能再遇到一次小白花和无名的果实挂满树梢落满地面，但是我们一次都没遇到过。</p>
+<p>再后来，陈妙遇上了一位阔佬，阔佬要带陈妙去广东。我或许是有些喜欢陈妙的，但那也可能只是我的精神在流浪的时候临时找的窝棚。我和陈妙告别。我说，原来你才是程式禅的有缘人，禅师说世界是阔佬的，我称赞陈妙是极美丽的女人，如此才能主宰阔佬。阔佬应该不会长成我或是禅师这样的猥琐相吧，毕竟陈妙说猥琐相的人才一无是处，阔佬不可能一无是处。陈妙让我保重，我不知道陈妙究竟会以什么样的身份跟随阔佬南下，是主宰阔佬抑或是依附阔佬，能否看到她想看的星空和日落，聊宇宙的秘密，聊《小王子》，我也让陈妙保重，我没有更多能说的话了。</p>
+<p>所以我一个人散步，我终于再看到剧场路的树开花了，我觉得我也到了要离开的时候了。</p>
+<p>我想我应该重拾python，也去往南方，去往禅师所去往的地方，去到兴兴轰轰的人间世，哪怕会颈椎病、肩周炎、静脉曲张和椎间盘突出，但我还年轻，我还可以学推拿、人体工学、营养学和健康学，学羽毛球。学无止境，学无止境。</p>
+<p>上回，我追寻程式禅失败了，这回，我依然做好失败的准备，毕竟程式禅不渡无缘人。</p>
+<p>但我已经想好了。</p>
+<blockquote class="blockquote">
+<p>任何问题应有一种， 且最好只有一种， 显而易见的解决方法。</p>
+</blockquote>
+<p>我毅然决然奔向南方。</p>
+<p>至于在南方所发生的，那又是另一个故事了。</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="midstreeeam/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
