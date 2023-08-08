@@ -25,6 +25,3 @@ format:
       light: [lux,light.scss]
       dark: [cyborg,dark.scss]
     css: styles.css
-
-
-
