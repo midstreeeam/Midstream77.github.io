@@ -36,7 +36,7 @@ Student / 学生<br/>
 Chinese / 中国人 / 爱国爱党<br/>
 Interested in a lot<br/>
 Good at nothing<br/>
-visit [fake homepage](fake.kaiyuanlou.com)
+visit [fake homepage](http://fake.kaiyuanlou.com/)
 
 ### How to get password ?
 
