@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Midstream">
-<meta name="dcterms.date" content="2023-06-11">
-<meta name="description" content="施放啊施放！你是施放，你怎么落魄到住进木桶！你是施放，你怎么豁达到住进木桶！">
+<meta name="description" content="You are welcome to place your creations here.">
 
-<title>MidstreamBlog - 员工之二</title>
+<title>MidstreamBlog - Contributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,24 +24,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,19 +63,49 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../../styles.css">
-</head>
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
 
-<body class="nav-fixed fullcontent">
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="MidstreamBlog" href="contributions.xml"></head>
+
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MidstreamBlog</span>
     </a>
   </div>
@@ -85,15 +115,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
+    <a class="nav-link" href="./about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../friends.html">
+    <a class="nav-link" href="./friends.html">
  <span class="menu-text">Friends</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contributions.html">
+    <a class="nav-link active" href="./contributions.html" aria-current="page">
  <span class="menu-text">Contributions</span></a>
   </li>  
 </ul>
@@ -109,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./index.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -125,259 +155,139 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">员工之二</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Contributions</h1>
                   <div>
         <div class="description">
-          施放啊施放！你是施放，你怎么落魄到住进木桶！你是施放，你怎么豁达到住进木桶！
+          You are welcome to place your creations here.
         </div>
       </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">小说</div>
-              </div>
-                  </div>
+                </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Midstream </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">June 11, 2023</p>
-      </div>
-    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="小说">小说 <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
-<p>我也未曾想过，《员工》一文会有续集，所以《员工》为《员工》而非《员工之一》。</p>
-<p>但是施放丢了，他就那样离奇地消失在了入职前一天的夜里。</p>
-<p>我去寻找施放的下落。</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">1</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>从煤气公司出发</p>
-<p>前往微普通的九十九道高墙</p>
-<p>我知道</p>
-<p>他的背影最后一次出现在一个男人的瞳孔</p>
-<p>那晚他们被困在夜色的小牢笼里</p>
-<p>我翻过九十九道墙</p>
-<p>看到摩天的塔</p>
-<p>我在一个螺丝钉的孔洞里找到了男人</p>
-<p>男人满眼彷徨</p>
-<p>他在螺丝钉的洞里往地下挖掘</p>
-<p>地震要来了，我听见男人说</p>
-<p>高塔会变成废墟，城墙会成为遗迹</p>
-<p>只有地下的宫殿才能幸免</p>
-<p>可是地下不应该更危险吗？</p>
-<p>男人摇头</p>
-<p>那里是地震的来源，也是台风的眼</p>
-<p>我看向男人挖掘的隧道</p>
-<p>你真的能到达晴朗的风眼？</p>
-<p>男人不知道</p>
-<p>那就远航吧，我劝男人</p>
-<p>等地震过去</p>
-<p>你一定要乘着你的独木舟归来</p>
-<p>男人邀请我一同远去</p>
-<p>可我还要寻找施放</p>
-<p>男人说</p>
-<p>天台那晚，施放走向大山的方向</p>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">2</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>大山是施放的家乡</p>
-<p>他在这里休憩</p>
-<p>也在这里堕入迷惘</p>
-<p>山民不再用炙烤的豚设宴</p>
-<p>施放已沦为魍魉</p>
-<p>山民说，他骗走了我的儿子和猪</p>
-<p>他逃难般归来，被逐之而去以棍棒</p>
-<p>山民的儿子带走了自己和施放留下的钥匙扣</p>
-<p>那上面有微普通的徽章</p>
-<p>他在为自己的儿子哭泣</p>
-<p>更为了作物和牲畜</p>
-<p>今年不是丰收年</p>
-<p>唯一的种猪也特立独行</p>
-<p>它长满黑色鬣毛的身体发硬发僵</p>
-<p>胯下的长鞭却逐渐枯萎</p>
-<p>它粗壮的颈动脉被利刃切开</p>
-<p>人们却发现它的排骨硬得无法入口</p>
-<p>我给予山民真挚的祝福</p>
-<p>别舍弃你的猪肋，别泯灭了你的希望！</p>
-<p>你的儿子会归来</p>
-<p>带来财富和丰收</p>
-<p>会有沃土</p>
-<p>会有软肋</p>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">3</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>山民说施放逃往边疆</p>
-<p>那里有奇险的山路和豺狼</p>
-<p>也有遍地黄金的传说和神话</p>
-<p>市集里聚满巨富商贾和走投无路者</p>
-<p>一朝万劫不复，一朝腾达飞黄</p>
-<p>施放啊</p>
-<p>你千万别在这里堵上你的性命</p>
-<p>穿着袍子的人拉住我</p>
-<p>是骗子或是巫医</p>
-<p>我用珍贵的泉水</p>
-<p>找他换取施放的消息</p>
-<p>他桀桀地笑</p>
-<p>你说的人早已离开这里</p>
-<p>他输的一塌糊涂</p>
-<p>已经回到镇里贩卖煤气</p>
-<p>可是他又如何能回到公司呢</p>
-<p>哪怕他曾经是上进的员工</p>
-<p>他为了微普通葬送了前程</p>
-<p>他的档案有抹不去的污点</p>
-<p>更何况</p>
-<p>微普通都大厦将倾</p>
-<p>哪还有公司愿意接纳施放</p>
-<p>匆匆的旅人啊</p>
-<p>我一直追不上施放的步伐</p>
-<p>感谢您的慷慨！</p>
-<p>我听到骗子或是巫医的声音</p>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">4</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>穿过沙漠</p>
-<p>我回到镇子上</p>
-<p>存在镇的人们聚集在大街</p>
-<p>大家在讨论一种慢性病</p>
-<p>或许也不是病</p>
-<p>而是身体的自我保护</p>
-<p>你会变得迷茫</p>
-<p>他们说</p>
-<p>然后会变得疯狂</p>
-<p>你奔跑，你追逐</p>
-<p>你总趔趄</p>
-<p>你像走肉行尸</p>
-<p>你慢慢的走不动了</p>
-<p>你坐下来歇息</p>
-<p>你任由他人奚落</p>
-<p>你任由坐吃山空</p>
-<p>然后</p>
-<p>你感觉到大地的抚慰</p>
-<p>你想成为一棵树</p>
-<p>把腿扎根到湿润的泥土里</p>
-<p>倚靠着青山发呆</p>
-<p>于是你真的往树的方向进化</p>
-<p>你的脚趾甲显现出木头的质感和色泽</p>
-<p>木头向着里也向着外生长</p>
-<p>你的下肢都变成了木头</p>
-<p>木头逐渐弯曲形变</p>
-<p>又变成一片片木板，把你包围</p>
-<p>你想变成一棵树</p>
-<p>却变成了一个桶</p>
-</section>
-<section id="section-4" class="level2">
-<h2 class="anchored" data-anchor-id="section-4">5</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>穿街走巷</p>
-<p>我在镇里寻找施放的痕迹</p>
-<p>我遇到一位在垃圾桶里翻找食物的年轻人</p>
-<p>于是我用一顿午餐换取施放的消息</p>
-<p>你说的人我认识</p>
-<p>我多么希望他还在这里住居</p>
-<p>他舍弃许多腐烂的蔬菜</p>
-<p>没有他我甚至无法继续拾荒</p>
-<p>他每日买进新鲜的蔬菜</p>
-<p>再把蔬菜放进冰箱</p>
-<p>除了蔬菜还有鸡蛋牛奶和猪肋</p>
-<p>只有丰满的食材才能压制他的惊慌</p>
-<p>可是他不会烹饪</p>
-<p>只能任由冰箱里的食物慢慢腐烂</p>
-<p>他会补充新的</p>
-<p>欺骗自己生活于正常</p>
-<p>我感到荒谬</p>
-<p>可是他为什么要这样？</p>
-<p>拾荒者说</p>
-<p>他不仅购入食材</p>
-<p>每日也有必须的行程</p>
-<p>他会带上他的电脑</p>
-<p>日日去咖啡馆里端坐</p>
-<p>那里是公司员工的聚集地</p>
-<p>他自费过着公司员工的生活</p>
-<p>如今他已经离开</p>
-<p>没人知道去了哪里</p>
-<p>这就是我知道的全部</p>
-<p>如果可以</p>
-<p>我希望您能继续</p>
-<p>资助我一顿晚宴</p>
-</section>
-<section id="section-5" class="level2">
-<h2 class="anchored" data-anchor-id="section-5">6</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>匆匆的旅人啊</p>
-<p>我在存在镇流浪</p>
-<p>大风吹过</p>
-<p>我看到一只木桶</p>
-<p>木桶骨碌碌的滚动</p>
-<p>里面住着一个人</p>
-<p>他手拿一柄锤子</p>
-<p>控制着方向</p>
-<p>人们说</p>
-<p>他是住在木桶里的放浪形骸者</p>
-<p>他看透了人生</p>
-<p>抛却功名利禄</p>
-<p>人们又说</p>
-<p>他是得了怪病的失败者</p>
-<p>想要成为一棵树</p>
-<p>却变成了一个桶</p>
-<p>人们还说</p>
-<p>他是不知廉耻的疯癫者</p>
-<p>他衣不蔽体</p>
-<p>在木桶里旁若无人地手淫</p>
-<p>可是我认识他</p>
-<p>施放！</p>
-<p>我凯旋高歌</p>
-<p>施放啊施放！</p>
-<p>你是施放，你怎么落魄到住进木桶！</p>
-<p>你是施放，你怎么豁达到住进木桶！</p>
-<p>我看到施放充满泪水的眼眶</p>
-<p>还有他嘴角痴愚的傻笑</p>
-<p>他的双腿已经化作木质</p>
-<p>成为了他居住的木桶了</p>
-<p>施放啊施放</p>
-<p>你也曾是一名上进的员工</p>
-<p>你也曾拥有自己的梦</p>
-<p>可是</p>
-<p>或许木桶本就是你最好的归宿</p>
-<p>虽然没有帝王亚历山大向你躬身</p>
-<p>也没有信徒向你谄媚</p>
-</section>
-<section id="section-6" class="level2">
-<h2 class="anchored" data-anchor-id="section-6">7</h2>
-<p>施放曾经踏上过的路再被我踏上</p>
-<p>我彷徨着不知去向</p>
-<p>施放曾经踏上过的路再被我踏上</p>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="小说" data-listing-date-sort="1666800000000" data-listing-file-modified-sort="1691462171646" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<p><a href="./contributions/【投稿】129号聊天室第二次聊天记录/index.html"> <img src="./contributions/【投稿】129号聊天室第二次聊天记录/cover.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./contributions/【投稿】129号聊天室第二次聊天记录/index.html">
+<h3 class="no-anchor listing-title">
+【投稿】129号聊天室第二次聊天记录
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('小说'); return false;">
+小说
+</div>
+</div>
+<a href="./contributions/【投稿】129号聊天室第二次聊天记录/index.html">
+<div class="listing-description">
+<p>是关于这次的聊天记录的发布吧？’中间’研究决定了，你可以继续发布，但可能只有‘中间’的某一部分人才能看到。</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./contributions/【投稿】129号聊天室第二次聊天记录/index.html">
+<div class="listing-date">
+Oct 27, 2022
+</div>
+<div class="listing-author">
+129
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="小说" data-listing-date-sort="1665331200000" data-listing-file-modified-sort="1691462164503" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<p><a href="./contributions/【投稿】129号聊天室第一次聊天记录/index.html"> <img src="./contributions/【投稿】129号聊天室第一次聊天记录/cover.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./contributions/【投稿】129号聊天室第一次聊天记录/index.html">
+<h3 class="no-anchor listing-title">
+【投稿】129号聊天室第一次聊天记录
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('小说'); return false;">
+小说
+</div>
+</div>
+<a href="./contributions/【投稿】129号聊天室第一次聊天记录/index.html">
+<div class="listing-description">
+<p>欢迎来到大圆环第129号聊天室，我是你的智能助手编号129，你也可以叫我129小姐。</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./contributions/【投稿】129号聊天室第一次聊天记录/index.html">
+<div class="listing-date">
+Oct 10, 2022
+</div>
+<div class="listing-author">
+129
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -625,8 +535,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://utteranc.es/client.js" repo="midstreeeam/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

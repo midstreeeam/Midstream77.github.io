@@ -1,8 +1,8 @@
 ---
-# title: "MidstreamBlog"
-description: "中期胡言乱语"
+title: "Contributions"
+description: "You are welcome to place your creations here."
 listing:
-  contents: posts
+  contents: contributions
   feed: true
   sort: "date desc"
   type: default

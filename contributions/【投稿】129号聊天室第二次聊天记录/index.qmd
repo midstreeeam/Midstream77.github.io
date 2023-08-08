@@ -2,7 +2,7 @@
 title: '【投稿】129号聊天室第二次聊天记录'
 author: "129"
 date: '2022-10-27'
-categories: ['投稿']
+categories: ['小说']
 description: 是关于这次的聊天记录的发布吧？‘中间’研究决定了，你可以继续发布，但可能只有‘中间’的某一部分人才能看到。
 image: cover.jpg
 

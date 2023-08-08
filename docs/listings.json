@@ -1,5 +1,12 @@
 [
   {
+    "listing": "/contributions.html",
+    "items": [
+      "/contributions/【投稿】129号聊天室第二次聊天记录/index.html",
+      "/contributions/【投稿】129号聊天室第一次聊天记录/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/程式禅/index.html",
@@ -12,8 +19,6 @@
       "/posts/美丽新世界的鼠鼠/index.html",
       "/posts/存在镇的人之一/index.html",
       "/posts/白鸽之死/index.html",
-      "/posts/【投稿】129号聊天室第二次聊天记录/index.html",
-      "/posts/【投稿】129号聊天室第一次聊天记录/index.html",
       "/posts/一个儿童绘本/index.html",
       "/posts/员工/index.html",
       "/posts/在pPy同志追悼会上的祷词/index.html",

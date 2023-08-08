@@ -17,6 +17,7 @@ website:
     left:
       - about.qmd
       - friends.qmd
+      - contributions.qmd
 format:
   html:
     # theme: sketchy

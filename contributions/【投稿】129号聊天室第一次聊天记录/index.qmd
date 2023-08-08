@@ -2,7 +2,7 @@
 title: '【投稿】129号聊天室第一次聊天记录'
 author: "129"
 date: '2022-10-10'
-categories: ['投稿']
+categories: ['小说']
 description: 欢迎来到大圆环第129号聊天室，我是你的智能助手编号129，你也可以叫我129小姐。
 image: cover.jpg
 ---

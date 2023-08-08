@@ -1,5 +1,8 @@
 {
   "listingMap": {
+    "contributions.qmd": [
+      "contributions"
+    ],
     "index.qmd": [
       "posts"
     ]
