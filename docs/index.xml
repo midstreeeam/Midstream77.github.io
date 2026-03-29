@@ -5,8 +5,8 @@
 <link>https://midstream.cn/</link>
 <atom:link href="https://midstream.cn/index.xml" rel="self" type="application/rss+xml"/>
 <description>中期胡言乱语</description>
-<generator>quarto-1.7.27</generator>
-<lastBuildDate>Wed, 15 Oct 2025 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.36</generator>
+<lastBuildDate>Tue, 14 Oct 2025 16:00:00 GMT</lastBuildDate>
 <item>
 <title>蛋糕的故事</title>
 <dc:creator>Midstream </dc:creator>
@@ -217,7 +217,7 @@
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/蛋糕的故事/</guid>
-<pubDate>Wed, 15 Oct 2025 04:00:00 GMT</pubDate>
+<pubDate>Tue, 14 Oct 2025 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>电台的故事</title>
@@ -364,7 +364,7 @@
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/电台的故事/</guid>
-<pubDate>Fri, 15 Mar 2024 04:00:00 GMT</pubDate>
+<pubDate>Thu, 14 Mar 2024 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>去往漫游</title>
@@ -496,7 +496,7 @@
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/去往漫游/</guid>
-<pubDate>Fri, 15 Dec 2023 05:00:00 GMT</pubDate>
+<pubDate>Thu, 14 Dec 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>日出</title>
@@ -669,7 +669,7 @@
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/日出/</guid>
-<pubDate>Wed, 04 Oct 2023 04:00:00 GMT</pubDate>
+<pubDate>Tue, 03 Oct 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>程式禅</title>
@@ -814,7 +814,7 @@ The Zen of Python, by Tim Peters&lt;/code&gt;&lt;/pre&gt;
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/程式禅/</guid>
-<pubDate>Thu, 03 Aug 2023 04:00:00 GMT</pubDate>
+<pubDate>Wed, 02 Aug 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>Unity?</title>
@@ -842,7 +842,7 @@ The Zen of Python, by Tim Peters&lt;/code&gt;&lt;/pre&gt;
 <category>日常</category>
 <category>学习笔记</category>
 <guid>https://midstream.cn/posts/Unity/</guid>
-<pubDate>Fri, 21 Jul 2023 04:00:00 GMT</pubDate>
+<pubDate>Thu, 20 Jul 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>bevy_rapier碰撞检测的源码拆解</title>
@@ -868,7 +868,7 @@ The Zen of Python, by Tim Peters&lt;/code&gt;&lt;/pre&gt;
 &lt;section id="拆解" class="level2"&gt;
 &lt;h2 class="anchored" data-anchor-id="拆解"&gt;拆解&lt;/h2&gt;
 &lt;p&gt;首先找到&lt;code&gt;RapierPhysicsPlugin&lt;/code&gt;的内容，这是为了让Rapier引擎能够以plugin的形式在bevy中运行的API。在&lt;code&gt;plugin::RapierPhysicsPlugin::build&lt;/code&gt;方法里我们看到这样一行&lt;/p&gt;
-&lt;div class="sourceCode" id="cb1" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb1-1"&gt;app&lt;span class="op" style="color: #5E5E5E;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb1" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb1-1"&gt;app&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"&gt;.&lt;/span&gt;add_systems(&lt;/span&gt;
 &lt;span id="cb1-2"&gt;    &lt;span class="dt" style="color: #AD0000;
@@ -887,9 +887,9 @@ background-color: null;
 font-style: inherit;"&gt;,&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb1-4"&gt;)&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;我们可以发现&lt;code&gt;add_system&lt;/code&gt;将步骤模拟system加入了plugin, 而在方法&lt;code&gt;add_system&lt;/code&gt;中，三个方法被返回，其中两个&lt;code&gt;update_system&lt;/code&gt; 被要求在&lt;code&gt;step_simulation&lt;/code&gt;之前调用。&lt;/p&gt;
-&lt;div class="sourceCode" id="cb2" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb2-1"&gt;&lt;span class="pp" style="color: #AD0000;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb2" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb2-1"&gt;&lt;span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;"&gt;PhysicsSet::&lt;/span&gt;StepSimulation &lt;span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -946,9 +946,9 @@ font-style: inherit;"&gt;,&lt;/span&gt;&lt;/span&gt;
 background-color: null;
 font-style: inherit;"&gt;.&lt;/span&gt;into_configs()&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;step_simulation&lt;/code&gt;参数如下和部分内容如下，其中的&lt;code&gt;collision_events&lt;/code&gt;被送至&lt;code&gt;RapierContext::step_simulation&lt;/code&gt;继续处理&lt;/p&gt;
-&lt;div class="sourceCode" id="cb3" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb3-1"&gt;&lt;span class="kw" style="color: #003B4F;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb3" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb3-1"&gt;&lt;span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;"&gt;pub&lt;/span&gt; &lt;span class="kw" style="color: #003B4F;
@@ -1136,12 +1136,12 @@ font-style: inherit;"&gt;.&lt;/span&gt;deleted_colliders&lt;span class="op" styl
 background-color: null;
 font-style: inherit;"&gt;.&lt;/span&gt;clear()&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;可以看到，&lt;code&gt;collision_events&lt;/code&gt;和&lt;code&gt;Hooks&lt;/code&gt;在&lt;code&gt;RapierContext::step_simulation&lt;/code&gt;中进行运算，值得注意的是，这里的&lt;code&gt;Hooks&lt;/code&gt;是&lt;code&gt;BevyPhysicsHooks&lt;/code&gt;类型而不是&lt;code&gt;PhysicsHooks&lt;/code&gt;, 前者多了一个&lt;code&gt;SystemParam&lt;/code&gt;作为supertrait。&lt;/p&gt;
 &lt;p&gt;而在&lt;code&gt;RapierContext::step_simulation&lt;/code&gt;中，方法&lt;code&gt;self.pipeline.step&lt;/code&gt;被调用了。这里的&lt;code&gt;step&lt;/code&gt;方法已经不再是bevy_rapier2d里的方法了，而是rapier2d的方法。同时，在这一步里，之前一直被传递的碰撞事件也和其他事件一同被打包进&lt;code&gt;rapier2d::pipeline::event_handler&lt;/code&gt;里面。在rapier中非常重要的两个概念Broad Phrase和Narrow Phrase也将在&lt;code&gt;RapierContext&lt;/code&gt;被实例化的同时完成初始化，并且作为参数和events，hooks一同传递给&lt;code&gt;PhysicsPipeline::step&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;step&lt;/code&gt;中会一件一件地处理一帧中发生的所有事件，是rapier引擎的核心loop。在每个step和substep中都会经过一系列的方法调用，最终会调用至位于&lt;code&gt;geometry::narrow_phase::NarrowPhase&lt;/code&gt;的&lt;code&gt;compute_contacts&lt;/code&gt;方法，这就是一切碰撞计算发生的地方。在这里，hooks中可以自定义的三个方法会被依次调用，用于修改碰撞的计算方法。&lt;/p&gt;
 &lt;p&gt;我在这里贴上完整源码：&lt;/p&gt;
-&lt;div class="sourceCode" id="cb4" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb4-1"&gt;&lt;span class="kw" style="color: #003B4F;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb4" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb4-1"&gt;&lt;span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;"&gt;pub&lt;/span&gt;(&lt;span class="kw" style="color: #003B4F;
@@ -2795,10 +2795,10 @@ background-color: null;
 font-style: inherit;"&gt;;&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb4-228"&gt;&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;然后呢？&lt;/p&gt;
 &lt;p&gt;然后我就看到了这一段：&lt;/p&gt;
-&lt;div class="sourceCode" id="cb5" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb5-1"&gt;&lt;span class="co" style="color: #5E5E5E;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb5" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb5-1"&gt;&lt;span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"&gt;// Deal with contacts disabled between bodies attached by joints.&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb5-2"&gt;&lt;span class="cf" style="color: #003B4F;
@@ -2943,7 +2943,7 @@ background-color: null;
 font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb5-20"&gt;&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;淦。&lt;/p&gt;
 &lt;p&gt;原来，在joint里有一个flag叫做&lt;code&gt;contacts_enabled&lt;/code&gt;，这段代码会专门对这个flag进行判断，如果打开了，那么joint连接的两端的collider之间的碰撞就会在计算之前从query中被删除。。。。。。。。。。&lt;/p&gt;
 &lt;p&gt;然后，好像我不需要用hooks了。只要在建立连接的时候把这个开关关上就好了。。。。。。&lt;/p&gt;
@@ -2954,7 +2954,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;p&gt;虽然现在有更简单的方法来实现我需要的功能了，但是新的hook到底该如何使用呢？&lt;/p&gt;
 &lt;p&gt;其实很简单，而且比以前更加简单，只需要将一个实现了hook内部方法的struct添加到&lt;code&gt;SystemParam&lt;/code&gt;就行了。&lt;/p&gt;
 &lt;p&gt;再就是，记得在添加&lt;code&gt;RapierPhysicsPlugin&lt;/code&gt;到bevy app的时候，把hook注册进去。因为plugin的定义是这样的：&lt;/p&gt;
-&lt;div class="sourceCode" id="cb6" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb6-1"&gt;&lt;span class="kw" style="color: #003B4F;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb6" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode rust code-with-copy"&gt;&lt;code class="sourceCode rust"&gt;&lt;span id="cb6-1"&gt;&lt;span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;"&gt;pub&lt;/span&gt; &lt;span class="kw" style="color: #003B4F;
@@ -2992,7 +2992,7 @@ background-color: null;
 font-style: inherit;"&gt;&amp;gt;,&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb6-5"&gt;&lt;span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;PhysicsHooks&lt;/code&gt;竟然作为是一个类型给到&lt;code&gt;RapierPhysicsPlugin&lt;/code&gt;的，一开始我忽视了这一点，以为只要注册了&lt;code&gt;SystemParam&lt;/code&gt;就可以被rapier获取到，浪费了许多时间。&lt;/p&gt;
 &lt;p&gt;另外，在浏览hooks的源码的过程中还发现，在&lt;code&gt;physics_hooks::ContactModificationContext&lt;/code&gt;中竟然很贴心的内置了一个方法&lt;code&gt;update_as_oneway_platform&lt;/code&gt;，可以直接在hook中使用，让复杂繁琐的单项平台可以可以几行搞定。&lt;/p&gt;
 
@@ -3003,7 +3003,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 <category>日常</category>
 <category>学习笔记</category>
 <guid>https://midstream.cn/posts/bevy_rapier碰撞检测的源码拆解/</guid>
-<pubDate>Fri, 30 Jun 2023 04:00:00 GMT</pubDate>
+<pubDate>Thu, 29 Jun 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>员工之二</title>
@@ -3227,7 +3227,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/员工之二/</guid>
-<pubDate>Sun, 11 Jun 2023 04:00:00 GMT</pubDate>
+<pubDate>Sat, 10 Jun 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>往曼德拉去</title>
@@ -3354,7 +3354,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/往曼德拉去/</guid>
-<pubDate>Sat, 29 Apr 2023 04:00:00 GMT</pubDate>
+<pubDate>Fri, 28 Apr 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>夏天之二</title>
@@ -3492,7 +3492,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/夏天之二/</guid>
-<pubDate>Sat, 22 Apr 2023 04:00:00 GMT</pubDate>
+<pubDate>Fri, 21 Apr 2023 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>2022年终找补</title>
@@ -3566,7 +3566,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>日常</category>
 <guid>https://midstream.cn/posts/2022年终找补/</guid>
-<pubDate>Tue, 27 Dec 2022 05:00:00 GMT</pubDate>
+<pubDate>Mon, 26 Dec 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>美丽新世界的鼠鼠</title>
@@ -3790,7 +3790,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/美丽新世界的鼠鼠/</guid>
-<pubDate>Tue, 29 Nov 2022 05:00:00 GMT</pubDate>
+<pubDate>Mon, 28 Nov 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>存在镇的人之一</title>
@@ -3904,7 +3904,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 <category>抽象艺术</category>
 <category>小说</category>
 <guid>https://midstream.cn/posts/存在镇的人之一/</guid>
-<pubDate>Sat, 19 Nov 2022 05:00:00 GMT</pubDate>
+<pubDate>Fri, 18 Nov 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>白鸽之死</title>
@@ -3969,7 +3969,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/白鸽之死/</guid>
-<pubDate>Tue, 01 Nov 2022 04:00:00 GMT</pubDate>
+<pubDate>Mon, 31 Oct 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>一个儿童绘本</title>
@@ -3989,7 +3989,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>抽象艺术</category>
 <guid>https://midstream.cn/posts/一个儿童绘本/</guid>
-<pubDate>Sat, 08 Oct 2022 04:00:00 GMT</pubDate>
+<pubDate>Fri, 07 Oct 2022 16:00:00 GMT</pubDate>
 <media:content medium="image" type="image/jpeg" url="https://midstream.cn/posts/一个儿童绘本/cover.jpg"/>
 </item>
 <item>
@@ -4101,7 +4101,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;p&gt;施放回到了山区。&lt;/p&gt;
 &lt;p&gt;山里比镇子里要穷苦很多，消息也闭塞，但是人们的眼睛都更亮。施放回到那件破落的老房子的时候，已经被路上不少人认出来了。人们围过来，七嘴八舌，伸出手搓施放身上的衣服，讨论着他外套的面料；也有人在施放身上捏着，说他瘦了，白了，说他小时候在自己家房顶撒尿结果把瓦片踢下来砸到壮壮了。&lt;/p&gt;
 &lt;p&gt;施放疲惫地应付着这些近十年没见过的邻里亲戚们，在别人问道他为什么回来的时候他自己也有些疑惑为什么要来这里遭罪。&lt;/p&gt;
-&lt;p&gt;“普~~~~”，有人不太确定地念出来。&lt;/p&gt;
+&lt;p&gt;“普&lt;sub&gt;&lt;/sub&gt;”，有人不太确定地念出来。&lt;/p&gt;
 &lt;p&gt;施放一个激灵，他知道应该是被人看到自己的钥匙扣了，一瞬间好些记忆翻涌起来。&lt;/p&gt;
 &lt;p&gt;“微普通！我知道！”边上有人叫起来，施放的脑袋嗖的一下扭向音源。&lt;/p&gt;
 &lt;p&gt;叫喊的是一个脏兮兮的小孩。“微普通可厉害啦！微普通是做高科技的，高科技你们知道吗，里面都是科学家！”小孩猛地跑过来，看着施放的钥匙扣，眼里闪烁着无限的憧憬与仰慕。“哥哥在微普通工作啊·······”&lt;/p&gt;
@@ -4147,7 +4147,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;p&gt;“后勤总部下飞控团队，挂篮飞行器小组。”施放说。&lt;/p&gt;
 &lt;p&gt;“我是特别任务队，做缩放的。”男人说。&lt;/p&gt;
 &lt;p&gt;“缩放？”施放不是很清楚，这没有出现在新闻里过。&lt;/p&gt;
-&lt;p&gt;“对，现在这个技术还在研究中，我们可以······”男人双手比划着，突然把两只胳膊伸开，“嗖~~~，然后一直小老鼠就变成了一只大老鼠。”&lt;/p&gt;
+&lt;p&gt;“对，现在这个技术还在研究中，我们可以······”男人双手比划着，突然把两只胳膊伸开，“嗖&lt;sub&gt;&lt;/sub&gt;~，然后一直小老鼠就变成了一只大老鼠。”&lt;/p&gt;
 &lt;p&gt;“这么神奇？”施放有些震惊，“我们公司已经在做这么高科技的东西了？”&lt;/p&gt;
 &lt;p&gt;“我估计用不了多久就可以普及了，听说上次的人体实验很成功。”男人吸了一口烟，调皮地朝施放吐出一个烟圈，“我能在成功前夕加入团队，运气还算是不错，哈哈。”&lt;/p&gt;
 &lt;p&gt;“人体实验？”施放示意男人多说一些。&lt;/p&gt;
@@ -4201,7 +4201,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
  </description>
 <category>小说</category>
 <guid>https://midstream.cn/posts/员工/</guid>
-<pubDate>Fri, 07 Oct 2022 04:00:00 GMT</pubDate>
+<pubDate>Thu, 06 Oct 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>在 pPy 同志追悼会上的祷词</title>
@@ -4221,7 +4221,7 @@ font-style: inherit;"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt
 &lt;p&gt;新版的python语法规则放在&lt;code&gt;Grammar/Python.gram&lt;/code&gt;文件中，相应的token则放在&lt;code&gt;Grammar/Tokens&lt;/code&gt;里。Python运行时，python的语法会首先经过&lt;code&gt;Parser/tokenizer.c&lt;/code&gt;这个文件，被按照token文件的规则解构成一个个token，而后被送入&lt;code&gt;Parser/parser.c&lt;/code&gt;中进行翻译。parser会依据&lt;code&gt;Parser/Python.asdl&lt;/code&gt;这个文件中的语法将token们解析成AST然后继而变成可以被执行的code object。因此，在实际操作中，当尝试更改语法时，&lt;code&gt;Python/Python-ast.c&lt;/code&gt;, &lt;code&gt;Python/ast.c&lt;/code&gt;， 以及&lt;code&gt;Python/symtable.c&lt;/code&gt;中的代码也需要更改。好在，这些文件里的部分是可以自动生成的，但是依然有相当一部分需要手动更改。&lt;/p&gt;
 &lt;p&gt;最关键的&lt;code&gt;parser.c&lt;/code&gt;是不用改的，因为这个编译器是被pegen模块生成的，pegen有两个版本，一个是c的老版本，一个是python的新版本，在&lt;code&gt;Tools/peg_generator/pegen&lt;/code&gt;里。确实，python甚至可以在自己还没有被编译好的时候运行自己的python代码，好像是预先编译过了。在我编译cpython时，老版本的&lt;code&gt;Parser/pegen.c&lt;/code&gt;似乎没有被弃用，依然运行，执行的工作却和生成文件关系不大。有意思的是，pegen这个编译编译器的编译器甚至也是被一个编译器编译的，因为pegen是翻译&lt;code&gt;Grammar/Python.gram&lt;/code&gt;的，而这个语法的语法规则被是被元语法定义的。元语法在这里&lt;code&gt;Tools/peg_generator/pegen/metagrammar.gram&lt;/code&gt;, 不过这个应该很少会需要改动。&lt;/p&gt;
 &lt;p&gt;在cpython里，函数的调用关系和上述流程并不相同。如&lt;code&gt;Parser/tokenizer.c&lt;/code&gt;中的第1352到2064行有一个相当长的函数叫&lt;code&gt;tok_get&lt;/code&gt;，里面是具体python如何处理文本字符串的。这个函数最终会被&lt;code&gt;Parser/pegen.c&lt;/code&gt;里的&lt;code&gt;_PyPegen_fill_token&lt;/code&gt;函数调用，而这个函数则在生成的&lt;code&gt;Parser/parser.c&lt;/code&gt;中被大量调用。这么说来终究是有些模糊，那就从python运行的主函数开始吧。&lt;/p&gt;
-&lt;div class="sourceCode" id="cb1" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode c code-with-copy"&gt;&lt;code class="sourceCode c"&gt;&lt;span id="cb1-1"&gt;&lt;span class="co" style="color: #5E5E5E;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb1" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode c code-with-copy"&gt;&lt;code class="sourceCode c"&gt;&lt;span id="cb1-1"&gt;&lt;span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"&gt;/* Minimal main program -- everything is loaded from the library */&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb1-2"&gt;&lt;/span&gt;
@@ -10291,8 +10291,8 @@ background-color: null;
 font-style: inherit;"&gt;// simple_stmts_rule函数非常长，并且里面其实是子啊重复调用simple_stmt_rule，&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb1-1014"&gt;&lt;span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;// 那么我们直接看这个simple_stmt_rule吧。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="sourceCode" id="cb2" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode c code-with-copy"&gt;&lt;code class="sourceCode c"&gt;&lt;span id="cb2-1"&gt;&lt;span class="co" style="color: #5E5E5E;
+font-style: inherit;"&gt;// 那么我们直接看这个simple_stmt_rule吧。&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="code-copy-outer-scaffold"&gt;&lt;div class="sourceCode" id="cb2" style="background: #f1f3f5;"&gt;&lt;pre class="sourceCode c code-with-copy"&gt;&lt;code class="sourceCode c"&gt;&lt;span id="cb2-1"&gt;&lt;span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"&gt;// 单个代码块太大会让我的编辑器很卡，所以我在这里换行一下&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb2-2"&gt;&lt;/span&gt;
@@ -15387,7 +15387,7 @@ background-color: null;
 font-style: inherit;"&gt;// 终于，我们已经完成了全部全部的步骤，知道当我们在python里敲下回车的时候都发生了什么&lt;/span&gt;&lt;/span&gt;
 &lt;span id="cb2-528"&gt;&lt;span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;至此，在小心翼翼地绕开了AST部分之后，代码的tracing就已经结束了。&lt;/p&gt;
 &lt;p&gt;回头看来，每个函数的结构都不复杂，但是调用层数多达几十上百层以后确实让人眼花缭乱。&lt;/p&gt;
 &lt;p&gt;一个较大项目的源码并不是说啃就能啃下来的，特别是在翻遍了国内外的互联网也没有找到详细的资料的时候。所以，借此机会，我决定记录一下我的探索，虽然不一定能帮到后来者。&lt;/p&gt;
@@ -15402,7 +15402,7 @@ font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt
 <category>日常</category>
 <category>学习笔记</category>
 <guid>https://midstream.cn/posts/在pPy同志追悼会上的祷词/</guid>
-<pubDate>Mon, 05 Sep 2022 04:00:00 GMT</pubDate>
+<pubDate>Sun, 04 Sep 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>Long Distance</title>
@@ -15564,7 +15564,7 @@ font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt
 &lt;p&gt;“你太贴心了，”珍妮特看向文文，“他真的太体贴了，不是吗？”&lt;/p&gt;
 &lt;p&gt;文文礼貌地微笑。&lt;/p&gt;
 &lt;p&gt;“真美好啊。”珍妮特说。然后他们一同走到街的尽头。&lt;/p&gt;
-&lt;p&gt;“嗯~~，总之，今天很高兴见到你。”文文以女主人的姿态说道。她知道这样有些唐突，但她不想再一同走下去了。他们挥手作别。当珍妮特走远，文文告诉韦恩她是对的。&lt;/p&gt;
+&lt;p&gt;“嗯&lt;sub&gt;&lt;/sub&gt;，总之，今天很高兴见到你。”文文以女主人的姿态说道。她知道这样有些唐突，但她不想再一同走下去了。他们挥手作别。当珍妮特走远，文文告诉韦恩她是对的。&lt;/p&gt;
 &lt;p&gt;“你什么是对的？”&lt;/p&gt;
 &lt;p&gt;“关于她是个彻头彻尾的骗子。”&lt;/p&gt;
 &lt;p&gt;“啊？”&lt;/p&gt;
@@ -15632,7 +15632,7 @@ font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt
 <category>小说</category>
 <category>转载/翻译</category>
 <guid>https://midstream.cn/posts/LongDistance/</guid>
-<pubDate>Thu, 30 Jun 2022 04:00:00 GMT</pubDate>
+<pubDate>Wed, 29 Jun 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>新冠毒株的变种</title>
@@ -15657,7 +15657,7 @@ font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt
  </description>
 <category>抽象艺术</category>
 <guid>https://midstream.cn/posts/新冠毒株的变种/</guid>
-<pubDate>Thu, 02 Jun 2022 04:00:00 GMT</pubDate>
+<pubDate>Wed, 01 Jun 2022 16:00:00 GMT</pubDate>
 </item>
 <item>
 <title>逐蛋者</title>
@@ -15667,7 +15667,7 @@ font-style: inherit;"&gt;// 虽然很不完全，呵呵&lt;/span&gt;&lt;/span&gt
 <category>抽象艺术</category>
 <category>小说</category>
 <guid>https://midstream.cn/posts/逐蛋者/</guid>
-<pubDate>Mon, 25 Apr 2022 04:00:00 GMT</pubDate>
+<pubDate>Sun, 24 Apr 2022 16:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

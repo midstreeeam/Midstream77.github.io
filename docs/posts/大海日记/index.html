@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>大海日记 – MidstreamBlog</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,14 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9603440839c0ed62cd54dc23e72b278e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-73864b0aefa5118ca797754484b6f086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -130,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -170,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -198,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -221,20 +224,22 @@ ul.task-list li input[type="checkbox"] {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -382,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 <p>​今夜无月。在大洋上，夜空亮得出奇，群星成团成雾，纠结成一条银河横亘在苏菲号小小的、三角形的白色的帆上空。白帆在晃，桅杆指着织女星，然后晃过去，指着鹰状星云，然后又晃回来，又指着织女。大海歪过头去看了看雷达，那艘小船还在前面不远不近的位置。他把电台调频到12，试探性地“hello？”了一声，然后紧接着他就后悔了。</p>
 <p>​茫茫大海上，对于这条在自己前方已经大半天的小船，郭大海对其升起了一股奇异的依恋感觉，他早就想联系这条船，看看船上是什么人，来自哪里，要去往哪里，为什么这样漂在海上。他想过，这条船或许是一条比苏菲号略大的45尺的双人帆船，船上是一对可爱而浪漫的法国老夫妻；或者，这条船比苏菲号更小更破，甚至没有发动机，船上唯一的水手是一名坚毅而老练的挪威人；又或者，是某个爱冒险的富二代，驾着一条崭新的帆船游艇想要趁着这个季节横渡大西洋······他希望这艘船能和自己同样去往加勒比海，永远都在自己的附近，虽然看不到，却有着一种奇异的鼓舞，如同在末世最后的避难所里，人们得知在世界另一端同样有一群人存活。但是大海也不愿追上去，他希望就这样一直跟着，直到目的地。在听到前船上是个女人的时候，郭大海更多的开始相信前面是一艘双人帆船，夫妻驾驶。</p>
 <p>​郭大海不是没有升起过联系前船的念头，相反，他早已谋划多时。但是，郭大海总觉得，在单人航海这个领域内，自己仿佛是唯一的正常人，毕竟若不是工作，大海也不会只身一人来到大海之上。相比于感受前方那位航海家的荒唐与孤僻，静默的陪伴或许更好，正如没有转身的背影永远是最好看的。然而，在判断前方或许是一对夫妻，且明确得知了无线电频道后，大海明显动摇了，且前船也和那个路过的意大利老哥聊过。大海自己甚至还没有做好呼出的打算，就觉得嘴快了脑子一步，先行打了招呼。然而在呼出之后，大海又忐忑地后悔了。他看着夜空在自己头顶晃啊晃。</p>
-<p>​“Copy.What’sup?”年轻的女声，带着一丝慵懒。没有报船的编号，也没有确认信息的来源，这在海上很不常见，尤其是两船第一次建立通讯。大海至今还记得在苏伊士运河的另一头，第一次和中国海军护航编队取得联系时，说一句话确认一次通讯然后换一次频道的那种战斗一样的紧张感。</p>
+<p>​“Copy.What’sup?“年轻的女声，带着一丝慵懒。没有报船的编号，也没有确认信息的来源，这在海上很不常见，尤其是两船第一次建立通讯。大海至今还记得在苏伊士运河的另一头，第一次和中国海军护航编队取得联系时，说一句话确认一次通讯然后换一次频道的那种战斗一样的紧张感。</p>
 <p>​大海一时间不知道该回答些什么，他只好简单地说，收到，这里是苏菲号，这只是一次不期望收到回复的随意的呼叫，停顿了很久，末了还加了一句，希望没有打扰到你。然后他又开始后悔，大海又觉得既然联系上了应该聊两句才对，不然对面接着回复一句“Copy”那这段航程就更尴尬了，像电梯里遇到没话说的熟人，还没法装作玩手机。</p>
 <p>​对面说，你就是那个跟屁虫啊，用的是普通话，咬字带着些许水乡的绵软。大海再次愣住了，电台静默。</p>
 <p>​嗯哼？对面哼了一声，似乎带着笑意。</p>
@@ -509,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -559,13 +564,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

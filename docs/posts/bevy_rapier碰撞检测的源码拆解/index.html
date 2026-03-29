@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>bevy_rapier碰撞检测的源码拆解 – MidstreamBlog</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9603440839c0ed62cd54dc23e72b278e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-73864b0aefa5118ca797754484b6f086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -165,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -205,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -233,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -256,20 +259,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -391,21 +396,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="拆解" class="level2">
 <h2 class="anchored" data-anchor-id="拆解">拆解</h2>
 <p>首先找到<code>RapierPhysicsPlugin</code>的内容，这是为了让Rapier引擎能够以plugin的形式在bevy中运行的API。在<code>plugin::RapierPhysicsPlugin::build</code>方法里我们看到这样一行</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span>add_systems(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span>add_systems(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Self</span><span class="pp">::</span>get_systems(<span class="pp">PhysicsSet::</span>StepSimulation)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>in_base_set(<span class="pp">PhysicsSet::</span>StepSimulation)<span class="op">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>我们可以发现<code>add_system</code>将步骤模拟system加入了plugin, 而在方法<code>add_system</code>中，三个方法被返回，其中两个<code>update_system</code> 被要求在<code>step_simulation</code>之前调用。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">PhysicsSet::</span>StepSimulation <span class="op">=&gt;</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">PhysicsSet::</span>StepSimulation <span class="op">=&gt;</span> (</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">systems::step_simulation::</span><span class="op">&lt;</span>PhysicsHooks<span class="op">&gt;,</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="pp">Events::</span><span class="op">&lt;</span>CollisionEvent<span class="op">&gt;</span><span class="pp">::</span>update_system</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>before(<span class="pp">systems::step_simulation::</span><span class="op">&lt;</span>PhysicsHooks<span class="op">&gt;</span>)<span class="op">,</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="pp">Events::</span><span class="op">&lt;</span>ContactForceEvent<span class="op">&gt;</span><span class="pp">::</span>update_system</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>before(<span class="pp">systems::step_simulation::</span><span class="op">&lt;</span>PhysicsHooks<span class="op">&gt;</span>)<span class="op">,</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span>into_configs()<span class="op">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span>into_configs()<span class="op">,</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>step_simulation</code>参数如下和部分内容如下，其中的<code>collision_events</code>被送至<code>RapierContext::step_simulation</code>继续处理</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span> <span class="kw">fn</span> step_simulation<span class="op">&lt;</span>Hooks<span class="op">&gt;</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span> <span class="kw">fn</span> step_simulation<span class="op">&lt;</span>Hooks<span class="op">&gt;</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">mut</span> context<span class="op">:</span> ResMut<span class="op">&lt;</span>RapierContext<span class="op">&gt;,</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    config<span class="op">:</span> Res<span class="op">&lt;</span>RapierConfiguration<span class="op">&gt;,</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    hooks<span class="op">:</span> StaticSystemParam<span class="op">&lt;</span>Hooks<span class="op">&gt;,</span></span>
@@ -430,12 +435,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="op">&amp;</span><span class="kw">mut</span> sim_to_render_time<span class="op">,</span></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="cn">Some</span>(interpolation_query)<span class="op">,</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        context<span class="op">.</span>deleted_colliders<span class="op">.</span>clear()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        context<span class="op">.</span>deleted_colliders<span class="op">.</span>clear()<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>可以看到，<code>collision_events</code>和<code>Hooks</code>在<code>RapierContext::step_simulation</code>中进行运算，值得注意的是，这里的<code>Hooks</code>是<code>BevyPhysicsHooks</code>类型而不是<code>PhysicsHooks</code>, 前者多了一个<code>SystemParam</code>作为supertrait。</p>
 <p>而在<code>RapierContext::step_simulation</code>中，方法<code>self.pipeline.step</code>被调用了。这里的<code>step</code>方法已经不再是bevy_rapier2d里的方法了，而是rapier2d的方法。同时，在这一步里，之前一直被传递的碰撞事件也和其他事件一同被打包进<code>rapier2d::pipeline::event_handler</code>里面。在rapier中非常重要的两个概念Broad Phrase和Narrow Phrase也将在<code>RapierContext</code>被实例化的同时完成初始化，并且作为参数和events，hooks一同传递给<code>PhysicsPipeline::step</code>。</p>
 <p><code>step</code>中会一件一件地处理一帧中发生的所有事件，是rapier引擎的核心loop。在每个step和substep中都会经过一系列的方法调用，最终会调用至位于<code>geometry::narrow_phase::NarrowPhase</code>的<code>compute_contacts</code>方法，这就是一切碰撞计算发生的地方。在这里，hooks中可以自定义的三个方法会被依次调用，用于修改碰撞的计算方法。</p>
 <p>我在这里贴上完整源码：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> compute_contacts(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> compute_contacts(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&amp;</span><span class="kw">mut</span> <span class="kw">self</span><span class="op">,</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    prediction_distance<span class="op">:</span> Real<span class="op">,</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    bodies<span class="op">:</span> <span class="op">&amp;</span>RigidBodySet<span class="op">,</span></span>
@@ -662,10 +667,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
 <span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>)<span class="op">;</span></span>
-<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>然后呢？</p>
 <p>然后我就看到了这一段：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Deal with contacts disabled between bodies attached by joints.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Deal with contacts disabled between bodies attached by joints.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">let</span> (<span class="cn">Some</span>(co_parent1)<span class="op">,</span> <span class="cn">Some</span>(co_parent2)) <span class="op">=</span> (<span class="op">&amp;</span>co1<span class="op">.</span>parent<span class="op">,</span> <span class="op">&amp;</span>co2<span class="op">.</span>parent) <span class="op">{</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (_<span class="op">,</span> joint) <span class="kw">in</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        impulse_joints<span class="op">.</span>joints_between(co_parent1<span class="op">.</span>handle<span class="op">,</span> co_parent2<span class="op">.</span>handle)</span>
@@ -684,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span> <span class="ot">'emit_events</span><span class="op">;</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>淦。</p>
 <p>原来，在joint里有一个flag叫做<code>contacts_enabled</code>，这段代码会专门对这个flag进行判断，如果打开了，那么joint连接的两端的collider之间的碰撞就会在计算之前从query中被删除。。。。。。。。。。</p>
 <p>然后，好像我不需要用hooks了。只要在建立连接的时候把这个开关关上就好了。。。。。。</p>
@@ -695,11 +700,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>虽然现在有更简单的方法来实现我需要的功能了，但是新的hook到底该如何使用呢？</p>
 <p>其实很简单，而且比以前更加简单，只需要将一个实现了hook内部方法的struct添加到<code>SystemParam</code>就行了。</p>
 <p>再就是，记得在添加<code>RapierPhysicsPlugin</code>到bevy app的时候，把hook注册进去。因为plugin的定义是这样的：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span> <span class="kw">struct</span> RapierPhysicsPlugin<span class="op">&lt;</span>PhysicsHooks <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">pub</span> <span class="kw">struct</span> RapierPhysicsPlugin<span class="op">&lt;</span>PhysicsHooks <span class="op">=</span> ()<span class="op">&gt;</span> <span class="op">{</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    physics_scale<span class="op">:</span> <span class="dt">f32</span><span class="op">,</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    default_system_setup<span class="op">:</span> <span class="dt">bool</span><span class="op">,</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    _phantom<span class="op">:</span> PhantomData<span class="op">&lt;</span>PhysicsHooks<span class="op">&gt;,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>PhysicsHooks</code>竟然作为是一个类型给到<code>RapierPhysicsPlugin</code>的，一开始我忽视了这一点，以为只要注册了<code>SystemParam</code>就可以被rapier获取到，浪费了许多时间。</p>
 <p>另外，在浏览hooks的源码的过程中还发现，在<code>physics_hooks::ContactModificationContext</code>中竟然很贴心的内置了一个方法<code>update_as_oneway_platform</code>，可以直接在hook中使用，让复杂繁琐的单项平台可以可以几行搞定。</p>
 
@@ -721,7 +726,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -771,13 +776,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

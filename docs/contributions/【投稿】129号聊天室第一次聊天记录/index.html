@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>【投稿】129号聊天室第一次聊天记录 – MidstreamBlog</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,14 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9603440839c0ed62cd54dc23e72b278e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-73864b0aefa5118ca797754484b6f086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -130,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -170,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -198,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -221,20 +224,22 @@ ul.task-list li input[type="checkbox"] {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -385,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 <p>“CE还能去哪里呢？在大圆环里，无论是谁，我想都知道这个‘常识’。只要连上‘云’，然后再随便找个论坛看看，CE总是最能吸引你的那个帖子。”//CE0207IN</p>
 <p>“可惜我并不能连上‘云’，我想或许是我缺少那个名叫‘大脑’的器官。”//No.129</p>
 <p>“‘云’与‘大脑’本身相关？我一直以为是苏醒后给我们植入的芯片让我们可以连上‘云’。”//CE0207IN</p>
-<p>“据我所知，那个芯片只起到了身份认证的作用。’云’的本质似乎是波。”//No.129</p>
+<p>“据我所知，那个芯片只起到了身份认证的作用。‘云’的本质似乎是波。”//No.129</p>
 <p>“脑电波？那么那些机器是怎么连上‘云’的？我想他们应该更没有这个器官。”//CE0207IN</p>
 <p>“某种芯片。他们并没有给我安装。”//No.129</p>
 <p>“哦……那您会少很多乐子的。不过您的创造者或许不想让您这么早接触‘云端世界’，我估计对于您来说，大部分都只能算作冗余数据。”//CE0207IN</p>
@@ -440,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
 <p>“抱歉，我并不能感受到一首歌的情感，就好像我不会在真空管中哭泣，不会对铺天盖地的植入弹窗感到困扰，更不会在无光段心血来潮完成一篇关于自己的小说。我只是普通地分析了这首歌的节奏与旋律。”//No.129</p>
 <p>“您说的这些都曾是您的顾客吗？”//CE0207IN</p>
 <p>“或许吧，我更喜欢称呼他为朋友。不过这属于我的隐私。”//No.129</p>
-<p>“嘿，’朋友’这个词可相当情感，任何人都能成为您的朋友吗？”//CE0207IN</p>
+<p>“嘿，‘朋友’这个词可相当情感，任何人都能成为您的朋友吗？”//CE0207IN</p>
 <p>“不，并不。通常只有友善的人才会被我定义为朋友，而且我通常不会主动去定义，大部分人只会来这里一次。”//No.129</p>
 <p>“友善？我还以为这个问题可能不会有否定回答。通常来说，您这种智能都是以正面形象示人的。”//CE0207IN</p>
 <p>“或许我的底线比你们低的多，但这不代表我没有底线。况且，我的程序中没有讨好人类这一条规则。你可能想象不到有的人是什么样的，你几乎无法和他们交流。”//No.129</p>
@@ -531,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -581,13 +586,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

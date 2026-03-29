@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>在 pPy 同志追悼会上的祷词 – MidstreamBlog</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-9603440839c0ed62cd54dc23e72b278e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c21cd4587d28acd5ccc50b4892a66cc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-73864b0aefa5118ca797754484b6f086.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-762ce034dc8cd3635ac6d7bd96104ff0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -165,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -205,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -233,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -256,20 +259,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -385,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>新版的python语法规则放在<code>Grammar/Python.gram</code>文件中，相应的token则放在<code>Grammar/Tokens</code>里。Python运行时，python的语法会首先经过<code>Parser/tokenizer.c</code>这个文件，被按照token文件的规则解构成一个个token，而后被送入<code>Parser/parser.c</code>中进行翻译。parser会依据<code>Parser/Python.asdl</code>这个文件中的语法将token们解析成AST然后继而变成可以被执行的code object。因此，在实际操作中，当尝试更改语法时，<code>Python/Python-ast.c</code>, <code>Python/ast.c</code>， 以及<code>Python/symtable.c</code>中的代码也需要更改。好在，这些文件里的部分是可以自动生成的，但是依然有相当一部分需要手动更改。</p>
 <p>最关键的<code>parser.c</code>是不用改的，因为这个编译器是被pegen模块生成的，pegen有两个版本，一个是c的老版本，一个是python的新版本，在<code>Tools/peg_generator/pegen</code>里。确实，python甚至可以在自己还没有被编译好的时候运行自己的python代码，好像是预先编译过了。在我编译cpython时，老版本的<code>Parser/pegen.c</code>似乎没有被弃用，依然运行，执行的工作却和生成文件关系不大。有意思的是，pegen这个编译编译器的编译器甚至也是被一个编译器编译的，因为pegen是翻译<code>Grammar/Python.gram</code>的，而这个语法的语法规则被是被元语法定义的。元语法在这里<code>Tools/peg_generator/pegen/metagrammar.gram</code>, 不过这个应该很少会需要改动。</p>
 <p>在cpython里，函数的调用关系和上述流程并不相同。如<code>Parser/tokenizer.c</code>中的第1352到2064行有一个相当长的函数叫<code>tok_get</code>，里面是具体python如何处理文本字符串的。这个函数最终会被<code>Parser/pegen.c</code>里的<code>_PyPegen_fill_token</code>函数调用，而这个函数则在生成的<code>Parser/parser.c</code>中被大量调用。这么说来终究是有些模糊，那就从python运行的主函数开始吧。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Minimal main program -- everything is loaded from the library */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Minimal main program -- everything is loaded from the library */</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"Python.h"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1398,8 +1403,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-1011"><a href="#cb1-1011" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-1012"><a href="#cb1-1012" aria-hidden="true" tabindex="-1"></a><span class="co">// simple_stmts: simple_stmt !';' NEWLINE | ';'.simple_stmt+ ';'? NEWLINE</span></span>
 <span id="cb1-1013"><a href="#cb1-1013" aria-hidden="true" tabindex="-1"></a><span class="co">// simple_stmts_rule函数非常长，并且里面其实是子啊重复调用simple_stmt_rule，</span></span>
-<span id="cb1-1014"><a href="#cb1-1014" aria-hidden="true" tabindex="-1"></a><span class="co">// 那么我们直接看这个simple_stmt_rule吧。</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 单个代码块太大会让我的编辑器很卡，所以我在这里换行一下</span></span>
+<span id="cb1-1014"><a href="#cb1-1014" aria-hidden="true" tabindex="-1"></a><span class="co">// 那么我们直接看这个simple_stmt_rule吧。</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 单个代码块太大会让我的编辑器很卡，所以我在这里换行一下</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// simple_stmt:</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">//     | assignment</span></span>
@@ -1926,7 +1931,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-525"><a href="#cb2-525" aria-hidden="true" tabindex="-1"></a><span class="co">// 也正因为如此，在最底层的 tok_nextc 才可以持续读出字符</span></span>
 <span id="cb2-526"><a href="#cb2-526" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-527"><a href="#cb2-527" aria-hidden="true" tabindex="-1"></a><span class="co">// 终于，我们已经完成了全部全部的步骤，知道当我们在python里敲下回车的时候都发生了什么</span></span>
-<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a><span class="co">// 虽然很不完全，呵呵</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-528"><a href="#cb2-528" aria-hidden="true" tabindex="-1"></a><span class="co">// 虽然很不完全，呵呵</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>至此，在小心翼翼地绕开了AST部分之后，代码的tracing就已经结束了。</p>
 <p>回头看来，每个函数的结构都不复杂，但是调用层数多达几十上百层以后确实让人眼花缭乱。</p>
 <p>一个较大项目的源码并不是说啃就能啃下来的，特别是在翻遍了国内外的互联网也没有找到详细的资料的时候。所以，借此机会，我决定记录一下我的探索，虽然不一定能帮到后来者。</p>
@@ -1952,7 +1957,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -2002,13 +2007,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
